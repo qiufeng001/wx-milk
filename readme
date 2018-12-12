@@ -15,3 +15,6 @@
         主键删除：/delete/{id} -- deleteByPrimaryKey(@PathVariable("id") K id)
 
 
+        测试是否成功上传
+
+
