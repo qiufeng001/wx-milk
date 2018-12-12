@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>用户详细信息页面</title>
+    <#include "/common/common.html" />
+</head>
+
+<body>
+    <div class="user-detail" style="width: 700px;height: 500px;padding-top: 50px;margin-left: 220px;">
+        <div style="text-align: center">
+            <span class="text-muted" style="font-size: x-large">姓名：</span>
+            <span class="text-muted" style="font-size: x-large">${user.name}</span>
+            <br>
+
+            <span class="text-muted" style="font-size: x-large">账号：</span>
+            <span class="text-muted" style="font-size: x-large">${user.account}</span>
+            <br>
+            <span class="text-muted" style="font-size: x-large">角色：</span>
+            <span class="text-muted" style="font-size: x-large;">
+                <#list user.roles as role>
+                    ${role.name!}、
+                </#list>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

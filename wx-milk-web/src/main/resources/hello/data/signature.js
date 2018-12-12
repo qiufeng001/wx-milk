@@ -1,0 +1,1 @@
+window.doc_info = {"id":437058,"uid":"abh8Px2B","logo":"","name":"七局微课大赛模板","external_bgm":null,"external_bgm_name":null,"external_bgm_volume":1.0,"stretch":"restrict","transitionControl":"click","show_arrow":true,"auto_play":-1}

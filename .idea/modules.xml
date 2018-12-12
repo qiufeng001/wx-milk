@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wx-milk.iml" filepath="$PROJECT_DIR$/wx-milk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-core/wx-milk-core.iml" filepath="$PROJECT_DIR$/wx-milk-core/wx-milk-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-domain/wx-milk-domain.iml" filepath="$PROJECT_DIR$/wx-milk-domain/wx-milk-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-manager/wx-milk-manager.iml" filepath="$PROJECT_DIR$/wx-milk-manager/wx-milk-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-model/wx-milk-model.iml" filepath="$PROJECT_DIR$/wx-milk-model/wx-milk-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-service/wx-milk-service.iml" filepath="$PROJECT_DIR$/wx-milk-service/wx-milk-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wx-milk-web/wx-milk-web.iml" filepath="$PROJECT_DIR$/wx-milk-web/wx-milk-web.iml" />
+    </modules>
+  </component>
+</project>

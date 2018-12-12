@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wx.milk.domain.service.FileServerRepository">
+    <!-- auto generate -->
+    <resultMap id="baseResultMap" type="wx.milk.model.service.SystemLogServer">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="exction_method" property="exctionMethod" jdbcType="VARCHAR"/>
+        <result column="execute_date" property="executeDate" jdbcType="TIMESTAMP"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="exception_code" property="exceptionCode" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="params" property="params" jdbcType="VARCHAR"/>
+        <result column="exception_detail" property="exceptionDetail" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="update_user" property="updateUser" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="colums_condition">
+     	id, file_name, file_size , fs_type, processor_type, suffix,
+     	template_type, file_length, create_time,create_user, update_time, update_user
+    </sql>
+
+    <sql id="condition">
+        1 = 1
+        <if test="null != params">
+            <if test="null!=params.queryCondition and ''!=params.queryCondition">
+                And ${params.queryCondition}
+            </if>
+            <if test="null != params.fsType and '' != params.fsType">
+                and fs_type = #{params.fsType}
+            </if>
+            <if test="null != params.templateType and  '' != params.templateType">
+                and template_type = #{params.templateType}
+            </if>
+        </if>
+    </sql>
+
+    <sql id="uniqe_condition">
+        1=1
+        <if test="null!=id and ''!=id">
+            AND id = #{id}
+        </if>
+    </sql>
+
+    <select id="selectByPage" resultMap="baseResultMap" resultType="map">
+        SELECT
+        <include refid="colums_condition"/>
+        FROM `t_wx_file` t
+        WHERE
+        <include refid="condition"/>
+        LIMIT #{page.startRowNum} ,#{page.rows}
+    </select>
+
+    <select id="selectCount" resultType="java.lang.Integer">
+        SELECT
+        count(1)
+        FROM `t_wx_file` t
+        WHERE
+        <include refid="condition"/>
+    </select>
+
+    <select id="selectByParams" resultMap="baseResultMap">
+        SELECT
+        <include refid="colums_condition"/>
+        FROM `t_wx_file` t
+        WHERE 1 = 1
+        <include refid="condition"/>
+    </select>
+
+    <!-- id>10 内置账户不能够删除 -->
+    <delete id="deleteByPrimaryKey">
+		DELETE FROM t_wx_file
+		WHERE id = #{id}
+	</delete>
+
+    <delete id="deleteByUnique">
+        DELETE FROM t_wx_file
+        WHERE id != 1
+        <include refid="uniqe_condition"/>
+    </delete>
+
+    <delete id="deleteByParams" parameterType="map">
+        DELETE
+        FROM t_wx_file
+        WHERE id != 1
+        <include refid="condition"/>
+    </delete>
+
+    <select id="findByPrimaryKey" resultMap="baseResultMap">
+        SELECT
+        <include refid="colums_condition"/>
+        FROM t_wx_file u
+        WHERE id = #{id} limit 1
+    </select>
+
+    <select id="findByUnique" resultMap="baseResultMap">
+        SELECT
+        <include refid="colums_condition"/>
+        FROM t_wx_file u
+        WHERE
+        <include refid="uniqe_condition"/>
+        limit 1
+    </select>
+
+    <select id="findByParam" resultMap="baseResultMap" parameterType="map">
+        SELECT
+        <include refid="colums_condition"/>
+        FROM t_wx_file u
+        WHERE
+        <include refid="condition"/>
+    </select>
+
+    <insert id="insert" parameterType="wx.milk.model.service.SystemLog">
+        INSERT INTO t_wx_file
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="fileName != null">
+                file_name,
+            </if>
+            <if test="fileSize != null">
+                file_size,
+            </if>
+            <if test="fsType != null">
+                fs_type,
+            </if>
+            <if test="processorType != null">
+                processor_type,
+            </if>
+            <if test="suffix != null">
+                suffix,
+            </if>
+            <if test="templateType != null">
+                template_type,
+            </if>
+            <if test="fileLength != null">
+                file_length,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateUser != null">
+                update_user,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="fileName != null">
+                #{fileName},
+            </if>
+            <if test="fileSize != null">
+                #{fileSize},
+            </if>
+            <if test="fsType != null">
+                #{fsType},
+            </if>
+            <if test="processorType != null">
+                #{processorType},
+            </if>
+            <if test="suffix != null">
+                #{suffix},
+            </if>
+            <if test="templateType != null">
+                #{templateType},
+            </if>
+            <if test="fileLength != null">
+                #{fileLength},
+            </if>
+
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createUser != null">
+                #{createUser},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateUser != null">
+                #{updateUser},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="wx.milk.model.service.SystemLog">
+        UPDATE t_wx_file
+        <set>
+            <if test="fileName != null">
+                file_name = #{fileName},
+            </if>
+            <if test="fileSize != null">
+                file_size = #{fileSize},
+            </if>
+            <if test="status != null">
+                fs_type = #{fsType},
+            </if>
+            <if test="processorType != null">
+                processor_type = #{processorType},
+            </if>
+            <if test="suffix != null">
+                suffix = #{suffix},
+            </if>
+            <if test="templateType != null">
+                template_type = #{templateType},
+            </if>
+            <if test="fileLength != null">
+                file_length = #{fileLength},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

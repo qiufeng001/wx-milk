@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:env.properties"/>
+    <!-- jedis连接池 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${jedis.maxTotal}"/>
+        <property name="maxIdle" value="${jedis.maxIdle}"/>
+        <property name="maxWaitMillis" value="${jedis.maxWaitMillis}"/>
+        <property name="testOnBorrow" value="true"/>
+    </bean>
+
+
+    <bean name="wxRedisClient" class="wx.redis.WxRedisClient" lazy-init="false">
+        <property name="commonJedis">
+            <bean class="wx.redis.WxRedisFactoryBean">
+                <constructor-arg index="0" ref="jedisPoolConfig"/>
+                <constructor-arg index="1" value="${jedis.url.common}"/>
+                <constructor-arg index="2" value="${jedis.port.common}"/>
+            </bean>
+        </property>
+       <!-- <property name="sessionJedis">
+            <bean class="com.qgutech.pe.base.redis.PeRedisFactoryBean">
+                <constructor-arg index="0" ref="jedisPoolConfig"/>
+                <constructor-arg index="1" value="${jedis.url.session}"/>
+                <constructor-arg index="2" value="${jedis.port.session}"/>
+            </bean>
+        </property>-->
+    </bean>
+
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="50"/>
+        <property name="maxPoolSize" value="100"/>
+        <property name="queueCapacity" value="2000"/>
+    </bean>
+
+    <!--用于异步转换ppt的线程池 -->
+    <bean id="asyncConvert" class="java.util.concurrent.ThreadPoolExecutor" lazy-init="true">
+        <!--线程池中的核心的线程数 -->
+        <constructor-arg value="20" index="0"/>
+        <!--线程池中最大的线程数 -->
+        <constructor-arg value="50" index="1"/>
+        <!--线程等待时间 -->
+        <constructor-arg value="60" index="2"/>
+        <!--线程等待的时间单位 -->
+        <constructor-arg value="SECONDS" index="3" type="java.util.concurrent.TimeUnit"/>
+        <!--当线程池中线程达到最大的线程数的时候采用的任务队列，以及队列的长度 -->
+        <constructor-arg index="4">
+            <bean class="java.util.concurrent.LinkedBlockingQueue">
+                <constructor-arg value="3000"/>
+            </bean>
+        </constructor-arg>
+        <!-- 当队列满了之后拒绝任务，抛出异常-->
+        <constructor-arg index="5">
+            <bean class="java.util.concurrent.ThreadPoolExecutor$AbortPolicy"/>
+        </constructor-arg>
+    </bean>
+</beans>

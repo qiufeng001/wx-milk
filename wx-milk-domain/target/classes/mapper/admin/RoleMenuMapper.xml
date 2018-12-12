@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wx.milk.domain.RoleMenuRepository">
+	<!-- auto generate -->
+	<resultMap id="BaseResultMap" type="wx.milk.model.RoleMenu">
+		<result column="menu_id" property="menuId" jdbcType="VARCHAR" />
+		<result column="role_no" property="roleNo" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<sql id="colums_condition">
+		id,account,role_no,status
+	</sql>
+
+	<sql id="condition">
+		<if test="null!=params">
+			<if test="null!=params.queryCondition and ''!=params.queryCondition">
+				And ${params.queryCondition}
+			</if>
+			<if test="null!=params.menuId and ''!=params.menuId">
+				and menu_id=#{params.menuId}
+			</if>
+			<if test="null!=params.roleNo and ''!=params.roleNo">
+				and role_no=#{params.roleNo}
+			</if>
+		</if>
+	</sql>
+
+	<select id="findByParam" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+		<include refid="colums_condition" />
+		FROM t_role_menu
+		WHERE 1=1
+		<include refid="condition" />
+		limit 1
+	</select>
+
+	<select id="selectCount" resultType="java.lang.Integer">
+		SELECT COUNT(1) as s FROM t_role_menu WHERE 1=1
+		<include refid="condition" />
+	</select>
+
+	<select id="selectByPage" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+		<include refid="colums_condition" />
+		FROM t_role_menu WHERE 1=1
+		<include refid="condition" />
+		<if test="orderby != null and ''!=orderby">
+			ORDER BY ${orderby}
+		</if>
+		LIMIT #{page.startRowNum} ,#{page.pageSize}
+	</select>
+
+	<select id="selectByParams" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT
+			<include refid="colums_condition"/>
+		FROM t_user_role t
+		where 1=1
+		<include refid="condition"/>
+	</select>
+
+	<delete id="deleteByPrimaryKey">
+		DELETE FROM t_role_menu
+		WHERE id = #{id}
+	</delete>
+
+	<delete id="deleteByParams" parameterType="map">
+		DELETE
+		FROM t_role_menu
+		WHERE 1=1
+		<include refid="condition" />
+		<if test="params.ids != null">
+			AND id in ( ${params.ids} )
+		</if>
+	</delete>
+
+	<select id="getUserRole" resultMap="BaseResultMap"
+			parameterType="map">
+		Select distinct
+		a.account,
+		a.role_no,
+		b.name
+		From v_user_role a
+		inner join auth_role b on a.role_no = b.role_no and b.status = 1
+		Where 1=1
+		<if test="params.accounts != null">
+			AND a.account in
+			<foreach item="item" collection="params.accounts" separator=","
+					 open="(" close=")" index="">
+				'${item}'
+			</foreach>
+		</if>
+		<if test="params.account != null">
+			And account = #{params.account}
+		</if>
+		order by a.account,b.name
+	</select>
+
+
+	<select id="validateRoleMenu" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM t_role_menu t
+			WHERE t.menu_id = #{menuId}
+				and t.role_no = #{roleNo}
+	</select>
+
+	<insert id="insert" parameterType="wx.milk.model.RoleMenu">
+		INSERT INTO t_role_menu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="menuId != null">
+				menu_id,
+			</if>
+			<if test="roleNo != null">
+				role_no,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="menuId != null">
+				#{menuId},
+			</if>
+			<if test="roleNo != null">
+				#{roleNo},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="update" parameterType="wx.milk.model.RoleMenu">
+		UPDATE t_role_menu
+		<set>
+			<if test="menuId != null">
+				menu_id = #{menuId},
+			</if>
+			<if test="roleNo != null">
+				role_no = #{roleNo},
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+	<!-- auto generate end -->
+</mapper>

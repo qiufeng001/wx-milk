@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>wx-milk</artifactId>
+        <groupId>wx</groupId>
+        <version>1.0-SNP</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>wx-milk-model</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <artifactId>wx-milk-core</artifactId>
+            <groupId>wx</groupId>
+            <version>1.0-SNP</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 打包本地maven 父依赖失败使用 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exe</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- <base href="http://topsports.com.cn:80/"> -->
+<title>404</title>
+	<#assign base=request.contextPath />
+<script type="text/javascript" src="${base}/framework/lib/jquery-3.2.1.min.js"></script>
+<!--
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    -->
+
+<style type="text/css">
+html,body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑";
+	width:100%;
+	height: 100%;
+}
+
+.box {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.box img{
+	margin:50px auto 0 auto;
+	width:750px;
+	height:400px;
+}
+.content {
+	width: 394px;
+	height: 180px;
+	margin:0 auto;
+}
+
+.content a {
+	font-size: 16px;
+	color: #656565;
+	float: left;
+}
+
+.content a.btn {
+	width: 170px;
+	height: 45px;
+	float: left;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-top: 20px;
+	margin-right: 53px;
+	background: #c4bda9;
+	text-align: center;
+	line-height: 45px;
+	cursor: pointer;
+}
+
+.content a.btn:hover {
+	background: #b4ad9b;
+}
+
+.content a.back {
+	margin-right: 0px;
+	background: #269c81;
+}
+
+.content a.back:hover {
+	background: #1f8c73;
+}
+
+.content ul {
+	font-size: 16px;
+	color: #656565;
+	margin-left: 25px;
+	float: left;
+	list-style: none;
+}
+
+.content ul li {
+	height: 36px;
+}
+
+.content ul li a {
+	display: block;
+	float: left;
+	width: 4px;
+	height: 4px;
+	margin: 10px 10px 0px 0px;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<img src="/resources/images/error/404.jpg" />
+		<div class="content">
+			<a>可能原因</a>
+			<ul>
+				<li><a></a>网络信号弱</li>
+				<li><a></a>找不到请求页面</li>
+				<li><a></a>输入的网站不正确</li>
+			</ul>
+			<a class="btn" href="javascript:history.go(0)">刷新</a><a
+				class="btn back" id="btnReturn" href="javascript:void(0)">返回首页</a>
+		</div>
+		<script>
+			$(function(){
+				$("#btnReturn").click(function(){
+					if (window.top == window.self) {
+						window.location.href="/home/";
+					}else{
+						window.parent.tabsClose();
+					}
+				});
+				function tabsClose(){  
+				    var tab=$('#mainTabs').tabs('getSelected'); 
+				    var index = $('#mainTabs').tabs('getTabIndex',tab);
+				    $('#mainTabs').tabs('close',index);//关闭对应index的tabs  
+				}  
+			})
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+wx.milk.service.configuration.ServiceAutoConifg,\
+wx.milk.service.configuration.ServiceModelAutoConfiguration
+

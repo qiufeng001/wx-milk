@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-convert" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-domain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wx-milk-web" charset="UTF-8" />
+  </component>
+</project>
