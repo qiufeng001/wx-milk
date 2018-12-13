@@ -1,7 +1,7 @@
 后台管理系统
 
 代码规约：
-    1.本项目使用技术 bootstrap + sea.js + spring+mvc + springboot + shiro + mybatis
+    1.本项目使用技术 bootstrap + sea.js + spring+mvc + springboot + shiro + mybatis + nginx
     前台向后台传查询参数的时候，统一使用 paramsMap
 
     增删改查接口以及方法参数
@@ -13,8 +13,5 @@
         修改：/update -- update(T entry)
         根据条件删除：/delete -- deleteByParams(Query query)
         主键删除：/delete/{id} -- deleteByPrimaryKey(@PathVariable("id") K id)
-
-
-        测试是否成功上传
 
 
