@@ -2,9 +2,10 @@
 
 代码规约：
     1.本项目使用技术 bootstrap + sea.js + spring+mvc + springboot + shiro + mybatis + nginx
+
     前台向后台传查询参数的时候，统一使用 paramsMap
 
-    增删改查接口以及方法参数
+    2.增删改查接口以及方法参数
         分页查询使用：/list -- selectByPage(Query query, Pagenation page)
         根据条件获取单个对象：/get -- findByParam(Query query)
         根据条件查询对象集合：/query -- selectByParams(Query query)
@@ -14,4 +15,4 @@
         根据条件删除：/delete -- deleteByParams(Query query)
         主键删除：/delete/{id} -- deleteByPrimaryKey(@PathVariable("id") K id)
 
-
+    3.
