@@ -4,7 +4,16 @@
     <bookmark url="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/hello/common/js/jquery_c6510f.js" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8233911-9843-4311-b642-599fdbdc5c3a" name="Default" comment="" />
+    <list default="true" id="e8233911-9843-4311-b642-599fdbdc5c3a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/DubboTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/UserDubboManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/web.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/web.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wx-milk-manager/src/main/java/wx/milk/manager/dubbo/server/AdministratorDubboProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wx-milk-manager/target/classes/wx/milk/manager/dubbo/server/AdministratorDubboProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wx-milk-web/target/test-classes/TestHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/wx-milk-web/target/test-classes/TestHashMap.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/wx-milk-core/target/" />
     <ignored path="$PROJECT_DIR$/wx-milk-model/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -91,93 +100,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestHashMap.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wx-milk-web/src/test/java/TestHashMap.java">
+      <file leaf-file-name="readme" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadPoolExecutorConfigration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/configuration/ThreadPoolExecutorConfigration.java">
+      <file leaf-file-name="DubboTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/DubboTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="39" column="62" selection-start-line="39" selection-start-column="62" selection-end-line="39" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThreadPoolExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8113">
-              <caret line="479" column="31" selection-start-line="479" selection-start-column="16" selection-end-line="479" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HashSet.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/util/HashSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3439">
-              <caret line="219" column="20" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
+            <state relative-caret-position="95">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
               <folding>
-                <element signature="e#8064#8065#0" expanded="true" />
-                <element signature="e#8112#8113#0" expanded="true" />
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HashMap.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/util/HashMap.java">
+      <file leaf-file-name="UserDubboManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/UserDubboManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11077">
-              <caret line="627" selection-start-line="627" selection-end-line="627" />
+            <state relative-caret-position="228">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="44" />
               <folding>
-                <element signature="e#24329#24330#0" expanded="true" />
-                <element signature="e#24394#24395#0" expanded="true" />
-                <element signature="e#66765#66766#0" expanded="true" />
-                <element signature="e#66822#66823#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="URLClassPath.class" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/jre/lib/rt.jar!/sun/misc/URLClassPath.class">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5738">
-              <caret line="364" column="66" selection-start-line="364" selection-start-column="66" selection-end-line="364" selection-end-column="66" />
+            <state relative-caret-position="249">
+              <caret line="146" column="27" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Runtime.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/lang/Runtime.java">
+      <file leaf-file-name="spring.factories" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/resources/META-INF/spring.factories">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="application-dev.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15884">
-              <caret line="870" selection-start-line="870" selection-end-line="870" />
+            <state relative-caret-position="380">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="System.java" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/lang/System.java">
+      <file leaf-file-name="dubbo.xsd" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10.jar!/META-INF/dubbo.xsd">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="dubbo.xsd" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/META-INF/dubbo.xsd">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20292">
-              <caret line="1122" selection-start-line="1122" selection-end-line="1122" />
+            <state relative-caret-position="158">
+              <caret line="1114" column="30" selection-start-line="1114" selection-start-column="23" selection-end-line="1114" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InstrumentationImpl.class" pinned="false" current-in-tab="false">
-        <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/jre/lib/rt.jar!/sun/instrument/InstrumentationImpl.class">
+      <file leaf-file-name="DubboNamespaceHandler.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/spring/schema/DubboNamespaceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4826">
-              <caret line="275" selection-start-line="275" selection-end-line="275" />
+            <state relative-caret-position="475">
+              <caret line="51" column="75" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DubboBeanDefinitionParser.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/spring/schema/DubboBeanDefinitionParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -189,18 +197,13 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Singleton" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create</find>
-      <find>menu/create</find>
-      <find>/create</find>
-      <find>findMaxSequence</find>
-      <find>c3p</find>
-      <find>WxFile</find>
       <find>WxJedisCommands</find>
       <find>commonJedis</find>
       <find>GlobalHandlerExceptionResolve</find>
@@ -225,6 +228,12 @@
       <find>corePoolSize</find>
       <find>ThreadPoolExecutor</find>
       <find>mainLock</find>
+      <find>dubbo</find>
+      <find>RpcInvocation</find>
+      <find>reference</find>
+      <find>DubboBeanDefinitionParser.parse</find>
+      <find>ServiceBean</find>
+      <find>&quot;ref&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>t_user_role</replace>
@@ -247,12 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wx-milk-web/src/main/resources/static/js/admin/menu.edit.view.js" />
-        <option value="$PROJECT_DIR$/wx-milk-manager/src/main/java/wx/milk/manager/IWxCommonManager.java" />
-        <option value="$PROJECT_DIR$/wx-milk-manager/src/main/java/wx/milk/manager/impl/WxCommonManager.java" />
-        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/IWxCommonService.java" />
-        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/WxCommonService.java" />
-        <option value="$PROJECT_DIR$/wx-milk-domain/src/main/java/wx/milk/domain/WxCommonRepository.java" />
         <option value="$PROJECT_DIR$/wx-milk-domain/src/main/resources/mapper/base/WxCommonMapper.xml" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/WebApplicationBootStrap.java" />
         <option value="$PROJECT_DIR$/wx-milk-domain/src/main/resources/mybatis-config.xml" />
@@ -293,11 +296,17 @@
         <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/JdbcPoolImpl.java" />
         <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/IJdbcPool.java" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/utils/JDBCPoolUtils.java" />
-        <option value="$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/test/JDBCPoolController.java" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/test/java/com/test/thread/ThreadTest.java" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/test/java/com/test/thread/ThreadPoolTest.java" />
         <option value="$PROJECT_DIR$/wx-milk-web/src/test/java/TestHashMap.java" />
+        <option value="$PROJECT_DIR$/readme" />
+        <option value="$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/DictionsController.java" />
+        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/DubboTest.java" />
+        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/IUserDubboManager.java" />
+        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/UserDubboManager.java" />
+        <option value="$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/DubboTest.java" />
+        <option value="$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties" />
       </list>
     </option>
   </component>
@@ -328,17 +337,7 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="wx-milk" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="wx-milk" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </treeState>
   </component>
@@ -350,22 +349,60 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
+    <option name="x" value="5" />
+    <option name="width" value="1920" />
     <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
@@ -405,97 +442,17 @@
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dubbo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="threadlocal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="threadpool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -503,7 +460,7 @@
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
-              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -513,23 +470,61 @@
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
               <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
               <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
               <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wx-milk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wx-milk" type="462c0819:PsiDirectoryNode" />
+              <item name="wx-milk-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -537,24 +532,24 @@
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="RequestMappingsPanelWidth0" value="15" />
-    <property name="RequestMappingsPanelWidth1" value="15" />
-    <property name="RequestMappingsPanelWidth2" value="15" />
-    <property name="SearchEverywhereHistoryKey" value="Authorization&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/java/wx/milk/security/Authorization.java&#10;Home&#9;PSI&#9;JAVA://wx.milk.web.controller.base.HomeController&#10;Login&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java&#10;User&#9;PSI&#9;JAVA://wx.milk.web.controller.admin.UserController&#10;Menu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/MenuController.java&#10;WebA&#9;RUN_CONFIGURATION&#9;WebApplicationBootStrap&#10;Sec&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Cookie&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/CookieUtils.java&#10;RedisUtils&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/RedisUtils.java&#10;Se&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Dubb&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/dubbo/server/AdministratorDubboProvider.java&#10;CommonJed&#9;PSI&#9;JAVA://wx.milk.web.base.redis.WxRedisClient#getCommonJedis&#10;File&#9;FILE&#9;jar://D:/.m2/springboot/repository/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-sources.jar!/com/mchange/io/FileUtils.java&#10;FileUt&#9;PSI&#9;JAVA://com.mchange.io.FileUtils&#10;Securi&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Base&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-core/src/main/java/wx/base/controller/BaseController.java&#10;WxF&#9;PSI&#9;JAVA://wx.milk.web.utils.WxFileUtils&#10;Secu&#9;PSI&#9;JAVA://wx.milk.web.base.inspect.SecurityInterceptor&#10;Red&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/RedisUtils.java&#10;WxC&#9;PSI&#9;JAVA://wx.contants.WxConstant&#10;fileCon&#9;null&#9;null&#10;index&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/admin/user/index.html&#10;HomeC&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/base/HomeController.java&#10;/menu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/static/js/admin/menu.edit.view.js&#10;MenuMapper&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/resources/mapper/admin/MenuMapper.xml&#10;UserS&#9;PSI&#9;JAVA://wx.milk.manager.thread.impl.UserThreadServerImpl&#10;Cook&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/CookieUtils.java&#10;login&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java&#10;webCon&#9;PSI&#9;JAVA://wx.milk.web.configuration.WebAutoConfiguration&#10;Securit&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;FileServ&#9;PSI&#9;JAVA://wx.milk.service.service.impl.FileServerServiceImpl&#10;wxJob&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-service/src/main/java/wx/milk/service/impl/WxJobService.java&#10;Shiro&#9;PSI&#9;JAVA://wx.util.ShiroUtils&#10;comm&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/common/common.html&#10;loginController&#9;null&#9;null&#10;DateU&#9;PSI&#9;JAVA://wx.util.date.DateUtil&#10;index.html&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/common/index.html&#10;40&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/404.html&#10;500.ht&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/500.html&#10;500&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/500.html&#10;secu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;ITest&#9;FILE&#9;jar://D:/.m2/springboot/repository/wx/wx-milk-api/1.0-SNP/wx-milk-api-1.0-SNP.jar!/wx/milk/api/test/ITestDubbo.class&#10;Test&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/impl/TestDubboManager.java&#10;testDubboController&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/business/TestDubboController.java&#10;TestD&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/impl/TestDubboManager.java&#10;UserMa&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/resources/mapper/admin/UserMapper.xml&#10;In&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;StringBuffer&#9;PSI&#9;JAVA://java.lang.StringBuffer&#10;UserMapp&#9;FILE&#9;file://E:/project/wx_small_project/wx-milk/wx-milk-domain/src/main/resources/mapper/admin/UserMapper.xml&#10;UserCo&#9;FILE&#9;file://E:/project/wx_small_project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/UserController.java" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="Log&#9;PSI&#9;JAVA://wx.milk.web.controller.admin.LoginController&#10;DubboNamespaceHandler &#9;PSI&#9;JAVA://com.alibaba.dubbo.config.spring.schema.DubboNamespaceHandler&#10;spring.handlers&#9;null&#9;null&#10;dubbo.xsd&#9;FILE&#9;jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/META-INF/dubbo.xsd&#10;Authorization&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/java/wx/milk/security/Authorization.java&#10;Home&#9;PSI&#9;JAVA://wx.milk.web.controller.base.HomeController&#10;Login&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java&#10;User&#9;PSI&#9;JAVA://wx.milk.web.controller.admin.UserController&#10;Menu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/MenuController.java&#10;WebA&#9;RUN_CONFIGURATION&#9;WebApplicationBootStrap&#10;Sec&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Cookie&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/CookieUtils.java&#10;RedisUtils&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/RedisUtils.java&#10;Se&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Dubb&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/dubbo/server/AdministratorDubboProvider.java&#10;CommonJed&#9;PSI&#9;JAVA://wx.milk.web.base.redis.WxRedisClient#getCommonJedis&#10;File&#9;FILE&#9;jar://D:/.m2/springboot/repository/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-sources.jar!/com/mchange/io/FileUtils.java&#10;FileUt&#9;PSI&#9;JAVA://com.mchange.io.FileUtils&#10;Securi&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;Base&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-core/src/main/java/wx/base/controller/BaseController.java&#10;WxF&#9;PSI&#9;JAVA://wx.milk.web.utils.WxFileUtils&#10;Secu&#9;PSI&#9;JAVA://wx.milk.web.base.inspect.SecurityInterceptor&#10;Red&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/RedisUtils.java&#10;WxC&#9;PSI&#9;JAVA://wx.contants.WxConstant&#10;fileCon&#9;null&#9;null&#10;index&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/admin/user/index.html&#10;HomeC&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/base/HomeController.java&#10;/menu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/static/js/admin/menu.edit.view.js&#10;MenuMapper&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/resources/mapper/admin/MenuMapper.xml&#10;UserS&#9;PSI&#9;JAVA://wx.milk.manager.thread.impl.UserThreadServerImpl&#10;Cook&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/utils/CookieUtils.java&#10;login&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java&#10;webCon&#9;PSI&#9;JAVA://wx.milk.web.configuration.WebAutoConfiguration&#10;Securit&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;FileServ&#9;PSI&#9;JAVA://wx.milk.service.service.impl.FileServerServiceImpl&#10;wxJob&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-service/src/main/java/wx/milk/service/impl/WxJobService.java&#10;Shiro&#9;PSI&#9;JAVA://wx.util.ShiroUtils&#10;comm&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/common/common.html&#10;loginController&#9;null&#9;null&#10;DateU&#9;PSI&#9;JAVA://wx.util.date.DateUtil&#10;index.html&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/common/index.html&#10;40&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/404.html&#10;500.ht&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/500.html&#10;500&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/resources/templates/error/500.html&#10;secu&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/base/inspect/SecurityInterceptor.java&#10;ITest&#9;FILE&#9;jar://D:/.m2/springboot/repository/wx/wx-milk-api/1.0-SNP/wx-milk-api-1.0-SNP.jar!/wx/milk/api/test/ITestDubbo.class&#10;Test&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/impl/TestDubboManager.java&#10;testDubboController&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-web/src/main/java/wx/milk/web/controller/business/TestDubboController.java&#10;TestD&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-manager/src/main/java/wx/milk/manager/impl/TestDubboManager.java&#10;UserMa&#9;FILE&#9;file://E:/project/wx-milk/wx-milk-domain/src/main/resources/mapper/admin/UserMapper.xml" />
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="ToolWindowDatabase.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542357922684" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../file-server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wx-milk-api/pom.xml" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3189338" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\project\wx_small_project\wx-milk\wx-milk-web\src\main\resources\static\framework\lib" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="wx.configuration" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -567,14 +562,14 @@
       <recent name="E:\project\wx-milk\wx-milk-web\src\main\resources\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="wx.milk.service.dubbo" />
       <recent name="wx.util" />
       <recent name="wx.milk.manager.impl" />
       <recent name="wx.milk.manager" />
       <recent name="wx.milk.service.impl" />
-      <recent name="wx.milk.service" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="wx.configuration" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\wx_small_project\wx-milk\wx-milk-web\src\main\resources\static\framework\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -589,7 +584,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestHashMap">
+  <component name="RunManager" selected="Spring Boot.WebApplicationBootStrap">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method>
@@ -972,11 +967,42 @@
       <workItem from="1544494502804" duration="10842000" />
       <workItem from="1544575792936" duration="12223000" />
       <workItem from="1544598694447" duration="66000" />
+      <workItem from="1544661292849" duration="359000" />
+      <workItem from="1544661677474" duration="8988000" />
     </task>
+    <task id="LOCAL-00001" summary="测试">
+      <created>1544602776120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544602776120</updated>
+    </task>
+    <task id="LOCAL-00002" summary="测试是否上传">
+      <created>1544603087704</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544603087704</updated>
+    </task>
+    <task id="LOCAL-00003" summary="测试是否上传">
+      <created>1544662422169</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544662422169</updated>
+    </task>
+    <task id="LOCAL-00004" summary="测试是否上传">
+      <created>1544662500598</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1544662500598</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394596000" />
+    <option name="totallyTimeSpent" value="406417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -993,7 +1019,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5127932" side_tool="true" weight="0.28967813" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.48816568" weight="0.17952128" />
+      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.48816568" weight="0.17910448" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
@@ -1001,8 +1027,9 @@
       <window_info id="Structure" order="1" sideWeight="0.5084746" side_tool="true" weight="0.28518122" />
       <window_info anchor="right" id="Ant Build" internal_type="SLIDING" order="1" show_stripe_button="false" weight="0.25" />
       <window_info id="UI Designer" order="5" />
-      <window_info anchor="bottom" id="Debug" order="13" sideWeight="0.48720682" weight="0.41731408" />
+      <window_info active="true" anchor="bottom" id="Debug" order="13" sideWeight="0.48720682" visible="true" weight="0.41666666" />
       <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49114582" weight="0.37111112" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" show_stripe_button="false" />
@@ -1011,59 +1038,21 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48933902" weight="0.35516092" />
       <window_info anchor="bottom" id="Spring" order="0" show_stripe_button="false" weight="0.32894737" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32852387" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49029756" visible="true" weight="0.19829424" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49029756" visible="true" weight="0.38752666" />
       <window_info anchor="right" id="Bean Validation" order="0" show_stripe_button="false" weight="0.3297587" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32777777" />
       <window_info anchor="right" id="Theme Preview" order="11" />
       <window_info id="Favorites" order="8" sideWeight="0.50970244" side_tool="true" weight="0.19616205" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="right" id="Commander" order="3" weight="0.4" />
       <window_info id="Nl-Palette" order="2" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49114582" weight="0.3718091" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="right" id="Properties" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32852387" />
       <window_info anchor="right" id="Coverage" order="2" sideWeight="0.5118343" side_tool="true" weight="0.1108742" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Designer" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="bottom" id="Spring" order="0" show_stripe_button="false" weight="0.32894737" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48933902" weight="0.35542858" />
-      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" internal_type="SLIDING" order="1" show_stripe_button="false" weight="0.25" />
-      <window_info id="UI Designer" order="5" />
-      <window_info anchor="right" id="Properties" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32852387" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="10" />
-      <window_info anchor="right" id="Commander" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5127932" side_tool="true" weight="0.28967813" />
-      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49114582" weight="0.3718091" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info id="Favorites" order="8" sideWeight="0.50793654" side_tool="true" weight="0.30764076" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" weight="0.32902467" />
-      <window_info id="Nl-Palette" order="2" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.48816568" weight="0.17952128" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4915254" visible="true" weight="0.19616205" />
-      <window_info anchor="right" id="Database" order="8" show_stripe_button="false" weight="0.3299356" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="11" />
-      <window_info id="Structure" order="1" sideWeight="0.5084746" side_tool="true" weight="0.28518122" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="2" sideWeight="0.5118343" side_tool="true" weight="0.1108742" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32852387" />
-      <window_info anchor="right" id="Bean Validation" order="0" show_stripe_button="false" weight="0.3297587" />
-      <window_info anchor="bottom" id="Debug" order="13" sideWeight="0.48720682" weight="0.37846836" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1071,12 +1060,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="测试" />
+    <MESSAGE value="测试是否上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试是否上传" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="103" />
+      <option name="time" value="105" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1133,167 +1127,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wx-milk-domain/src/main/java/wx/milk/security/Authorization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/templates/admin/user/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/utils/MenuUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/base/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="51" column="27" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="117" column="33" selection-start-line="117" selection-start-column="33" selection-end-line="117" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/templates/common/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="494" column="21" selection-start-line="494" selection-start-column="21" selection-end-line="494" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="80" column="25" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/.m2/springboot/repository/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/util/Pool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/.m2/springboot/repository/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-core/src/main/java/wx/redis/WxJedisPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="101" column="5" lean-forward="true" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/test/java/ConnPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="63" column="23" lean-forward="true" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/application-default.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="48" column="59" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/WxJobService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/admin/impl/DictionsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/utils/JDBCPoolUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/IJdbcPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/admin/IMenuService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/test/java/ConnPoolUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="49" column="5" selection-start-line="33" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/test/JDBCPoolController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="50" column="37" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/JdbcPoolImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="73" column="34" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wx-milk-web/src/test/java/ConnPoolTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1429,14 +1262,14 @@
     </entry>
     <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20292">
+        <state relative-caret-position="20254">
           <caret line="1122" selection-start-line="1122" selection-end-line="1122" />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/jre/lib/rt.jar!/sun/instrument/InstrumentationImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4826">
+        <state relative-caret-position="4788">
           <caret line="275" selection-start-line="275" selection-end-line="275" />
         </state>
       </provider>
@@ -1450,32 +1283,22 @@
     </entry>
     <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/util/HashSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3439">
-          <caret line="219" column="20" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
-          <folding>
-            <element signature="e#8064#8065#0" expanded="true" />
-            <element signature="e#8112#8113#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="282">
+          <caret line="95" column="24" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="jar://E:/develop/jdk8/jdk1.8.0_191/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11077">
-          <caret line="627" selection-start-line="627" selection-end-line="627" />
-          <folding>
-            <element signature="e#24329#24330#0" expanded="true" />
-            <element signature="e#24394#24395#0" expanded="true" />
-            <element signature="e#66765#66766#0" expanded="true" />
-            <element signature="e#66822#66823#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="473">
+          <caret line="619" column="36" lean-forward="true" selection-start-line="619" selection-start-column="36" selection-end-line="619" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wx-milk-web/src/test/java/TestHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1494,6 +1317,168 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readMe.txt" />
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10.jar!/com/alibaba/dubbo/config/annotation/Reference.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/annotation/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="110" column="14" lean-forward="true" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/annotation/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/DictionsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <caret line="285" column="55" selection-start-line="285" selection-start-column="55" selection-end-line="285" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10.jar!/META-INF/dubbo.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/META-INF/dubbo.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="1114" column="30" selection-start-line="1114" selection-start-column="23" selection-end-line="1114" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/RootBeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/impl/DubboTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/IUserDubboManager.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/DubboTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/wx/wx-milk-api/1.0-SNP/wx-milk-api-1.0-SNP.jar!/wx/milk/api/server/IAdministratorDubboProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE-sources.jar!/org/springframework/beans/factory/config/BeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/spring/schema/DubboBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/.m2/springboot/repository/com/alibaba/dubbo/2.4.10/dubbo-2.4.10-sources.jar!/com/alibaba/dubbo/config/spring/schema/DubboNamespaceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="51" column="75" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/java/wx/milk/service/dubbo/UserDubboManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="44" />
+          <folding>
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-manager/src/main/java/wx/milk/manager/dubbo/server/AdministratorDubboProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/java/wx/milk/web/controller/admin/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="146" column="27" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-service/src/main/resources/META-INF/spring.factories">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx-milk-web/src/main/resources/application-dev.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
