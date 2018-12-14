@@ -9675,4 +9675,68 @@
  [INFO ]2018-12-11 16:13:00[http-nio-80-exec-6]performance.web:(JDBCPoolController.java:70).getJDBCPoolInfoTest,/jdbcpool_test,takes time:2ms
  [INFO ]2018-12-11 16:13:07[http-nio-80-exec-8]performance.web:(JDBCPoolController.java:70).getJDBCPoolInfo,/jdbcpool,takes time:7ms
  [INFO ]2018-12-11 16:13:13[http-nio-80-exec-10]performance.web:(JDBCPoolController.java:70).releaseJDBCPool,/releaseJDBCPool,takes time:2794ms
+ [INFO ]2018-12-13 17:43:03[http-nio-80-exec-1]performance.web:(LoginController.java:70).string,/,jump to:/admin/login.html,takes time:193ms
+ [INFO ]2018-12-13 17:43:04[http-nio-80-exec-7]performance.web:(LoginController.java:70).index,/login,jump to:/admin/login.html,takes time:6ms
+ [INFO ]2018-12-13 17:43:04[http-nio-80-exec-13]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:132ms
+ [INFO ]2018-12-13 17:43:06[http-nio-80-exec-1]performance.web:(LoginController.java:70).login,/signin,takes time:658ms
+ [INFO ]2018-12-13 17:43:06[http-nio-80-exec-3]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:208ms
+ [INFO ]2018-12-13 17:43:06[http-nio-80-exec-10]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-13 17:43:20[http-nio-80-exec-8]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:42ms
+ [INFO ]2018-12-13 17:43:20[http-nio-80-exec-11]performance.web:(BasicErrorController.java:70).error,/error,takes time:3ms
+ [INFO ]2018-12-13 17:43:29[http-nio-80-exec-6]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:8ms
+ [INFO ]2018-12-13 17:43:29[http-nio-80-exec-13]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:43:36[http-nio-80-exec-9]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:21ms
+ [INFO ]2018-12-13 17:43:36[http-nio-80-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:44:02[http-nio-80-exec-7]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:12ms
+ [INFO ]2018-12-13 17:44:02[http-nio-80-exec-5]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:44:02[http-nio-80-exec-3]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:8ms
+ [INFO ]2018-12-13 17:44:02[http-nio-80-exec-10]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:48:21[http-nio-80-exec-6]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:48:21[http-nio-80-exec-2]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:48:23[http-nio-80-exec-9]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:43ms
+ [INFO ]2018-12-13 17:48:23[http-nio-80-exec-11]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-13 17:48:25[http-nio-80-exec-5]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:48:25[http-nio-80-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:48:25[http-nio-80-exec-2]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:48:25[http-nio-80-exec-7]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:48:26[http-nio-80-exec-13]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:9ms
+ [INFO ]2018-12-13 17:48:26[http-nio-80-exec-14]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:49:04[http-nio-80-exec-1]performance.web:(LoginController.java:70).string,/,jump to:/admin/login.html,takes time:23ms
+ [INFO ]2018-12-13 17:49:04[http-nio-80-exec-12]performance.web:(LoginController.java:70).index,/login,jump to:/admin/login.html,takes time:7ms
+ [INFO ]2018-12-13 17:49:04[http-nio-80-exec-9]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:2ms
+ [INFO ]2018-12-13 17:49:10[http-nio-80-exec-5]performance.web:(LoginController.java:70).login,/signin,takes time:31ms
+ [INFO ]2018-12-13 17:49:10[http-nio-80-exec-13]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:27ms
+ [INFO ]2018-12-13 17:49:10[http-nio-80-exec-9]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-13 17:49:12[http-nio-80-exec-2]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:11ms
+ [INFO ]2018-12-13 17:49:12[http-nio-80-exec-14]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:49:12[http-nio-80-exec-1]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:7ms
+ [INFO ]2018-12-13 17:49:12[http-nio-80-exec-11]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:49:19[http-nio-80-exec-8]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:49:22[http-nio-80-exec-5]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:8ms
+ [INFO ]2018-12-13 17:49:22[http-nio-80-exec-13]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:49:23[http-nio-80-exec-7]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:9ms
+ [INFO ]2018-12-13 17:49:23[http-nio-80-exec-15]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:49:32[http-nio-80-exec-15]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:49:32[http-nio-80-exec-12]performance.web:(BasicErrorController.java:70).error,/error,takes time:4ms
+ [INFO ]2018-12-13 17:49:42[http-nio-80-exec-9]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:49:42[http-nio-80-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:49:49[http-nio-80-exec-2]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:11ms
+ [INFO ]2018-12-13 17:49:49[http-nio-80-exec-16]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:59:03[http-nio-80-exec-1]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:23ms
+ [INFO ]2018-12-13 17:59:04[http-nio-80-exec-7]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:59:04[http-nio-80-exec-6]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-13 17:59:07[http-nio-80-exec-8]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 17:59:07[http-nio-80-exec-19]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:59:08[http-nio-80-exec-9]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:11ms
+ [INFO ]2018-12-13 17:59:08[http-nio-80-exec-7]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 17:59:09[http-nio-80-exec-17]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:33ms
+ [INFO ]2018-12-13 17:59:10[http-nio-80-exec-15]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 17:59:10[http-nio-80-exec-14]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-13 18:01:12[http-nio-80-exec-6]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:34ms
+ [INFO ]2018-12-13 18:01:12[http-nio-80-exec-20]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-13 18:01:12[http-nio-80-exec-17]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:0ms
+ [INFO ]2018-12-13 18:01:14[http-nio-80-exec-20]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 18:01:14[http-nio-80-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-13 18:01:16[http-nio-80-exec-19]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-13 18:01:16[http-nio-80-exec-8]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
  
