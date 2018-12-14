@@ -16,11 +16,13 @@ public class SystemLog extends BasicEntity {
     /* 日志id */
     private String id;
     /* 操作人id */
-    private String userId;
+    private String userInfo;
     /* 操作的ip */
     private String ip;
     /* 执行的方法 */
     private String exctionMethod;
+
+    private OperatorType operatorType;
 
     /* 执行时间 */
     @JsonSerialize(using = JsonDefaultDateSerializer.class)
@@ -35,6 +37,30 @@ public class SystemLog extends BasicEntity {
     private String exceptionDetail;
     /*  */
 
+    public enum OperatorType {
+        INSERT("插入", "insert"),
+        UPDATE("修改", "update"),
+        DELETE("删除", "delete"),
+        EXCEPTION("异常", "exception");
+
+        private String description;
+
+        private String text;
+
+        private OperatorType(String description, String text) {
+            this.text = text;
+            this.description = description;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
     public String getId() {
         return id;
     }
@@ -43,12 +69,12 @@ public class SystemLog extends BasicEntity {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserInfo() {
+        return userInfo;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserInfo(String userInfo) {
+        this.userInfo = userInfo;
     }
 
     public String getIp() {
@@ -113,5 +139,13 @@ public class SystemLog extends BasicEntity {
 
     public void setExceptionDetail(String exceptionDetail) {
         this.exceptionDetail = exceptionDetail;
+    }
+
+    public OperatorType getOperatorType() {
+        return operatorType;
+    }
+
+    public void setOperatorType(OperatorType operatorType) {
+        this.operatorType = operatorType;
     }
 }

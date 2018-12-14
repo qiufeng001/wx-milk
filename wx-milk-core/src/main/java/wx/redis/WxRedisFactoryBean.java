@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
 public class WxRedisFactoryBean implements MethodInterceptor, FactoryBean<JedisCommands>, Serializable {
+
     private WxJedisPool jedisPool;
     private WxJedis jedis;
     private WxJedisCommands proxy;
@@ -47,6 +48,7 @@ public class WxRedisFactoryBean implements MethodInterceptor, FactoryBean<JedisC
     WxJedisCommands getJedis() {
         return this.proxy;
     }
+
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         return this.jedisPool == null ? this.invokeInternal(invocation) : this.invokeInternalWithPool(invocation);
@@ -62,6 +64,7 @@ public class WxRedisFactoryBean implements MethodInterceptor, FactoryBean<JedisC
                     try {
                         this.jedis.disconnect();
                     } catch (Exception ignored) {
+                        ignored.printStackTrace();
                     }
 
                     this.jedis = new WxJedis(this.host, this.port);
@@ -122,10 +125,12 @@ public class WxRedisFactoryBean implements MethodInterceptor, FactoryBean<JedisC
     public WxJedisCommands getObject() throws Exception {
         return this.getJedis();
     }
+
     @Override
     public Class<WxJedisCommands> getObjectType() {
         return WxJedisCommands.class;
     }
+
     @Override
     public boolean isSingleton() {
         return true;

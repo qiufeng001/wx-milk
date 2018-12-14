@@ -13,7 +13,7 @@ import wx.milk.manager.thread.IThread;
  * try it bast!
  */
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/threadPool")
 public class ThreadPoolExecutorController {
 
     protected Log logger = LogFactory.getLog(getClass());

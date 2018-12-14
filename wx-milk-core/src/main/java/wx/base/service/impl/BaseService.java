@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import wx.base.domain.IRepository;
 import wx.base.manager.IEntryResultHandler;
 import wx.base.service.IService;
+import wx.log.SystemServiceLog;
 import wx.query.Page;
 import wx.query.Pagenation;
 import wx.query.Query;
@@ -70,8 +71,10 @@ public abstract class BaseService<T extends IEntity, K> implements IService<T, K
 	}
 
 	@Override
+	@SystemServiceLog
 	@Transactional(readOnly=false, isolation = Isolation.READ_COMMITTED, rollbackFor=Exception.class)
 	public Integer insert(T entry) {
+		int i = 1 / 0;
 		return getRepository().insert(entry);
 	}
 

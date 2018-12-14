@@ -1,32 +1,29 @@
-/*
 package wx.milk.web.controller.log;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import wx.milk.model.log.ExecutionResult;
-import wx.milk.model.log.WxContant;
-import wx.milk.model.service.SystemLogServer;
-import wx.milk.service.log.SystemLogService;
+import wx.milk.model.service.SystemLog;
+import wx.milk.service.ISystemLogService;
+import wx.milk.web.utils.RedisUtils;
+import wx.milk.web.utils.WebUtils;
+import wx.util.JsonUtil;
+import wx.util.ShiroUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Date;
 
-*/
 /**
- *  定义日志切入类
+ * 定义日志切入类
  * auther: kiven on 2018/8/24/024 17:55
  * try it bast!
- *//*
+ */
 
 @Aspect
 @Component
@@ -34,163 +31,207 @@ import java.util.Date;
 public class SystemLogAspect {
 
     @Autowired
-    private SystemLogService systemLogService;
+    private ISystemLogService systemLogService;
 
-    */
-/***
+    /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
-     *//*
+     */
+    @Pointcut("@annotation(wx.milk.web.controller.log.SystemServiceLog)")
+    public void serviceAspect() {
+    }
 
-    @Pointcut("@annotation(wx.milk.service.log.SystemLogService)")
-    public void serviceAspect(){}
+    /**
+     * 插入日志
+     */
+    @Pointcut("execution(* wx.base.service.*.insert(..))")
+    public void insert() {
 
-    */
-/***
-     * 定义controller切入点拦截规则，拦截SystemControllerLog注解的方法
-     *//*
+    }
 
-    @Pointcut("@annotation(wx.milk.web.controller.log.SystemLogController)")
-    public void controllerAspect(){}
+    /**
+     * 修改日志
+     */
+    @Pointcut("execution(* wx.base.service.*.update(..))")
+    public void update() {
 
-    */
-/***
-     * 拦截控制层的操作日志
+    }
+
+    /**
+     * 删除日志
+     */
+    @Pointcut("execution(* wx.base.service.*.delete*(..))")
+    public void delete() {
+
+    }
+
+    @AfterReturning(value = "insert()", returning = "object")
+    public void insertLog(JoinPoint joinPoint, Object object) throws Throwable {
+        // request.getSession().getAttribute("businessAdmin");
+        // 判断参数
+        if (joinPoint.getArgs() == null) {// 没有参数
+            return;
+        }
+        // 获取方法名
+        String methodName = joinPoint.getSignature().getName();
+        // 获取操作内容
+        String opContent = optionContent(joinPoint.getArgs(), methodName);
+
+        SystemLog log = new SystemLog();
+        log.setOperatorType(SystemLog.OperatorType.INSERT);
+        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setCreateTime(new Date());
+        systemLogService.insert(log);
+    }
+
+    @AfterReturning(value = "delete()", returning = "object")
+    public void deleteLog(JoinPoint joinPoint, Object object) throws Throwable {
+        // request.getSession().getAttribute("businessAdmin");
+        // 判断参数
+        if (joinPoint.getArgs() == null) {// 没有参数
+            return;
+        }
+        // 获取方法名
+        String methodName = joinPoint.getSignature().getName();
+        // 获取操作内容
+        String opContent = optionContent(joinPoint.getArgs(), methodName);
+
+        SystemLog log = new SystemLog();
+        log.setOperatorType(SystemLog.OperatorType.DELETE);
+        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setCreateTime(new Date());
+        systemLogService.insert(log);
+    }
+
+    @AfterReturning(value = "update()", returning = "object")
+    public void updateLog(JoinPoint joinPoint, Object object) throws Throwable {
+        // request.getSession().getAttribute("businessAdmin");
+        // 判断参数
+        if (joinPoint.getArgs() == null) {// 没有参数
+            return;
+        }
+        // 获取方法名
+        String methodName = joinPoint.getSignature().getName();
+        // 获取操作内容
+        String opContent = optionContent(joinPoint.getArgs(), methodName);
+
+        SystemLog log = new SystemLog();
+        log.setOperatorType(SystemLog.OperatorType.UPDATE);
+        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setCreateTime(new Date());
+        systemLogService.insert(log);
+    }
+
+    /**
+     * 异常日志
+     *
      * @param joinPoint
-     * @return
-     * @throws Throwable
-     *//*
-
-    @Around("controllerAspect()")
-    public ExecutionResult recordLog(ProceedingJoinPoint joinPoint) throws Throwable {
-        SystemLogServer systemLog = new SystemLogServer();
-        Object proceed = null ;
-        //获取session中的用户
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        request.getSession().getAttribute("user");
-        systemLog.setUserId("vesus");
-        //获取请求的ip
-        String ip = request.getRemoteAddr();
-        systemLog.setIp(ip);
-        //获取执行的方法名
-        systemLog.setExctionMethod(joinPoint.getSignature().getName());
-
-        //获取方法执行前时间
-        systemLog.setExecuteDate(new Date());
-
-        proceed = joinPoint.proceed();
-        //提取controller中ExecutionResult的属性
-        ExecutionResult result = (ExecutionResult) proceed;
-
-        if (result.getResultCode().equals(WxContant.ReturnCode.RES_SUCCESS)){
-            //设置操作信息
-            systemLog.setType("1");
-            //获取执行方法的注解内容
-            systemLog.setDescription(getControllerMethodDescription(joinPoint)+":"+result.getMsg());
-        }else{
-            systemLog.setType("2");
-            systemLog.setExceptionCode(result.getMsg());
+     * @param e
+     */
+    @AfterThrowing(pointcut = "serviceAspect()", throwing = "e")
+    public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+                .getRequestAttributes()).getRequest();
+        // 获取登陆用户信息
+        String user = RedisUtils.getUserJsonByToken(request);
+        // 获取请求ip
+        String ip = WebUtils.getRequestIp(request);
+        // 获取用户请求方法的参数并序列化为JSON格式字符串
+        String params = "";
+        Object[] args = joinPoint.getArgs();
+        if (args != null) {
+            params = Arrays.toString(args);
+        }
+        try {
+            SystemLog log = new SystemLog();
+            log.setDescription(getServiceMthodDescription(joinPoint));
+            log.setExceptionCode(e.getClass().getName());
+            log.setOperatorType(SystemLog.OperatorType.EXCEPTION);
+            log.setExceptionDetail(e.getMessage());
+            log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
+            log.setParams(params);
+            log.setCreateUser(user);
+            log.setCreateTime(new Date());
+            log.setIp(ip);
+            // 保存数据库
+            systemLogService.insert(log);
+        } catch (Exception ex) {
+            e.printStackTrace();
         }
 
-        Object[] params = joinPoint.getArgs() ;
-        String returnStr = "" ;
-        for (Object param : params) {
-            if (param instanceof String){
-                returnStr+= param ;
-            }else if (param instanceof Integer){
-                returnStr+= param ;
+    }
+
+    /**
+     * 使用Java反射来获取被拦截方法(insert、update、delete)的参数值， 将参数值拼接为操作内容
+     *
+     * @param args
+     * @param mName
+     * @return
+     */
+    public String optionContent(Object[] args, String mName) {
+        if (args == null) {
+            return null;
+        }
+        StringBuffer rs = new StringBuffer();
+        rs.append(mName);
+        String className = null;
+        int index = 1;
+        // 遍历参数对象
+        for (Object info : args) {
+            // 获取对象类型
+            className = info.getClass().getName();
+            className = className.substring(className.lastIndexOf(".") + 1);
+            rs.append("[参数" + index + "，类型:" + className + "，值:");
+            Method[] methods = info.getClass().getDeclaredMethods();
+            for (Method method : methods) {
+                String methodName = method.getName();
+                if (methodName.indexOf("get") == -1) {// 不是get方法
+                    continue;// 不处理
+                }
+                Object rsValue = null;
+                try {
+                    rsValue = method.invoke(info);
+                } catch (Exception e) {
+                    continue;
+                }
+                rs.append("(" + methodName + ":" + rsValue + ")");
             }
+            rs.append("]");
+            index++;
         }
-        systemLog.setParams(returnStr);
-
-        //systemLogService.save(systemLog);
-
-        return result ;
+        return rs.toString();
     }
 
-    //异常处理
-    @AfterThrowing(pointcut = "controllerAspect()",throwing="e")
-    public void doAfterThrowing(JoinPoint joinPoint, Throwable e) throws Throwable{
-        SystemLogServer systemLog = new SystemLogServer();
-        Object proceed = null ;
-        //获取session中的用户
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        request.getSession().getAttribute("user");
-        systemLog.setUserId("vesus");
-        //获取请求的ip
-        String ip = request.getRemoteAddr();
-        systemLog.setIp(ip);
-        systemLog.setType("2");
-        systemLog.setExceptionCode(e.getClass().getName());
-        systemLog.setExceptionDetail(e.getMessage());
-        //systemLogService.saveUser(systemLog);
-    }
-
-
-    */
-/***
-     * 获取service的操作信息
-     * @param joinpoint
-     * @return
+    /**
+     * 获取注解中对方法的描述信息 用于service层注解
+     *
+     * @param joinPoint 切点
+     * @return 方法描述
      * @throws Exception
-     *//*
-
-    public String getServiceMethodMsg(JoinPoint joinpoint) throws Exception{
-        //获取连接点目标类名
-        String className =joinpoint.getTarget().getClass().getName() ;
-        //获取连接点签名的方法名
-        String methodName = joinpoint.getSignature().getName() ;
-        //获取连接点参数
-        Object[] args = joinpoint.getArgs() ;
-        //根据连接点类的名字获取指定类
-        Class targetClass = Class.forName(className);
-        //拿到类里面的方法
-        Method[] methods = targetClass.getMethods() ;
-
-        String description = "" ;
-        //遍历方法名，找到被调用的方法名
-        for (Method method : methods) {
-            if (method.getName().equals(methodName)){
-                Class[] clazzs = method.getParameterTypes() ;
-                if (clazzs.length==args.length){
-                    //获取注解的说明
-                    description = method.getAnnotation(SystemLogService. class).decription();
-                    break;
-                }
-            }
-        }
-        return description ;
-    }
-
-    */
-/***
-     * 获取controller的操作信息
-     * @param point
-     * @return
-     *//*
-
-    public String getControllerMethodDescription(ProceedingJoinPoint point) throws  Exception{
-        //获取连接点目标类名
-        String targetName = point.getTarget().getClass().getName() ;
-        //获取连接点签名的方法名
-        String methodName = point.getSignature().getName() ;
-        //获取连接点参数
-        Object[] args = point.getArgs() ;
-        //根据连接点类的名字获取指定类
+     */
+    public static String getServiceMthodDescription(JoinPoint joinPoint) throws Exception {
+        //获取目标类名
+        String targetName = joinPoint.getTarget().getClass().getName();
+        //获取方法名
+        String methodName = joinPoint.getSignature().getName();
+        //获取相关参数
+        Object[] arguments = joinPoint.getArgs();
+        //生成类对象
         Class targetClass = Class.forName(targetName);
-        //获取类里面的方法
-        Method[] methods = targetClass.getMethods() ;
-        String description="" ;
-        for (Method method : methods) {
-            if (method.getName().equals(methodName)){
-                Class[] clazzs = method.getParameterTypes();
-                if (clazzs.length == args.length){
-                    description = method.getAnnotation(SystemLogController.class).descrption();
-                    break;
-                }
-            }
-        }
-        return description ;
-    }
+        //获取该类中的方法
+        Method[] methods = targetClass.getMethods();
 
+        String description = "";
+
+        for (Method method : methods) {
+            if (!method.getName().equals(methodName)) {
+                continue;
+            }
+            Class[] clazzs = method.getParameterTypes();
+            if (clazzs.length != arguments.length) {
+                continue;
+            }
+            description = method.getAnnotation(SystemServiceLog.class).description();
+        }
+        return description;
+    }
 }
-*/

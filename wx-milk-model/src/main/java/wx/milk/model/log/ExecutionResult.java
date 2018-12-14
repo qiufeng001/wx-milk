@@ -6,6 +6,7 @@ package wx.milk.model.log;
  * try it bast!
  */
 public class ExecutionResult {
+
     private String resultCode;
     private String msg;
 

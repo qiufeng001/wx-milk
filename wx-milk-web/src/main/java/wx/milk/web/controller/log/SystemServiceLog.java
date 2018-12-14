@@ -1,4 +1,4 @@
-package wx.milk.service.log;
+package wx.milk.web.controller.log;
 
 import java.lang.annotation.*;
 
@@ -10,10 +10,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 @Documented
-public @interface SystemLogService {
+public @interface SystemServiceLog {
     //定义成员
-    String decription() default "" ;
+    String description() default "" ;
 
-    //int save(SystemLog log);
 
 }
