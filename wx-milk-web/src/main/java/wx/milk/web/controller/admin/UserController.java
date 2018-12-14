@@ -10,6 +10,8 @@ import wx.base.controller.BaseController;
 import wx.base.manager.IManager;
 import wx.milk.manager.admin.IUserManager;
 
+import wx.milk.web.controller.log.SystemControllerLog;
+import wx.milk.web.controller.log.SystemServiceLog;
 import wx.milk.web.utils.DESUtils;
 import wx.query.Query;
 import wx.security.JsonResult;
@@ -72,6 +74,7 @@ public class UserController extends BaseController<User, String> {
 
     @RequestMapping("/createOrUpdate")
     @ResponseBody
+    @SystemControllerLog(description = "ces", name = "doAfterThrowing")
     public JsonResult createOrUpdate(User user) {
         try {
             int count = validate(user);

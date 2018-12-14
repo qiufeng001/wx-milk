@@ -10,8 +10,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 @Documented
-public @interface SystemServiceLog {
+public @interface SystemControllerLog {
     //定义成员
     String description() default "" ;
-
+    String name() default "";
 }

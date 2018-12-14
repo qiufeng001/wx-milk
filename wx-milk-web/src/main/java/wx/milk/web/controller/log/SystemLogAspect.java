@@ -27,7 +27,6 @@ import java.util.Date;
 
 @Aspect
 @Component
-@Order(-5)
 public class SystemLogAspect {
 
     @Autowired
@@ -36,8 +35,8 @@ public class SystemLogAspect {
     /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
      */
-    @Pointcut("@annotation(wx.milk.web.controller.log.SystemServiceLog)")
-    public void serviceAspect() {
+    @Pointcut("@annotation(wx.milk.web.controller.log.SystemControllerLog)")
+    public void controllerAspect() {
     }
 
     /**
@@ -127,7 +126,7 @@ public class SystemLogAspect {
      * @param joinPoint
      * @param e
      */
-    @AfterThrowing(pointcut = "serviceAspect()", throwing = "e")
+    @AfterThrowing(pointcut = "controllerAspect()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes()).getRequest();

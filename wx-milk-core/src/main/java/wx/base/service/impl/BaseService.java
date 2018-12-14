@@ -71,7 +71,6 @@ public abstract class BaseService<T extends IEntity, K> implements IService<T, K
 	}
 
 	@Override
-	@SystemServiceLog
 	@Transactional(readOnly=false, isolation = Isolation.READ_COMMITTED, rollbackFor=Exception.class)
 	public Integer insert(T entry) {
 		int i = 1 / 0;
