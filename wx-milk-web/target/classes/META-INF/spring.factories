@@ -1,0 +1,9 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+wx.milk.web.configuration.WebMvcConfig,\
+wx.milk.web.configuration.WebAutoConfiguration,\
+wx.milk.web.configuration.KaptchaConfig,\
+wx.milk.web.configuration.ShiroConfiguration,\
+wx.milk.web.configuration.FreeMarkerAutoConfiguration,\
+wx.milk.web.configuration.ThreadPoolExecutorConfigration
+

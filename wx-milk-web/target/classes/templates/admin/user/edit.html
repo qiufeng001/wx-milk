@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>菜单编辑页面</title>
+    <#include "/common/common.html" />
+
+    <script type="text/javascript">
+        /*var resourcesUrl = '${cdn}';*/
+        (function () {
+            // var path = "/resources";
+            var path = "";
+            seajs.config({
+                "base": path + "/",
+                map: [
+                    [/^(.*\.(?:css|js))(.*)$/i, '$1?' + "0.1"]
+                ],
+                "paths": {
+                    "core": path + "/framework/core",
+                    "lib": path + +"/framework/lib",
+                    "security": path + "/framework/security"
+                }
+            });
+        })();
+
+        $(function () {
+            seajs.use("/js/admin/user.edit.view");
+        });
+    </script>
+</head>
+<body>
+
+<!-- 新增和修改菜单 -->
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="menuLable">编辑用户信息页面</h4>
+        </div>
+        <div class="modal-body">
+            <form id="menuForm" enctype="multipart/form-data">
+                <input type="hidden" name="fileId" id="fileId"/>
+                <input type="hidden" value="${user.id!}" name="id" id="id">
+                <input type="hidden" value="${user.name!}" id="oldName">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" class="form-control" name="name" id="name" value="${user.name!}" width="100px;">
+                </div>
+                <div class="form-group">
+                    <label>账号</label>
+                    <input type="text" class="form-control" name="account" id="account" value="${user.account!}" width="100px;">
+                    <label id="msg"></label>
+                </div>
+                <div class="form-group">
+                    <label>状态</label>
+                    <#if user != null>
+                        <select class="combobox" name="status">
+                            <#if user.status == 1>
+                                <option value="1" selected>启用</option>
+                                <option value="0">停用</option>
+                            </#if>
+                            <#if user.status == 0>
+                                <option value="1">启用</option>
+                                <option value="0" selected>停用</option>
+                            </#if>
+                        </select>
+                    </#if>
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="save">保存</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div>
+</body>
+</html>

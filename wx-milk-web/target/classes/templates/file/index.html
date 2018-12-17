@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>文件列表</title>
+    <#include "/common/common.html" />
+
+    <script type="text/javascript">
+        (function () {
+            // var path = "/resources";
+            var path = "";
+            seajs.config({
+                "base": path + "/",
+                map: [
+                    [/^(.*\.(?:css|js))(.*)$/i, '$1?' + "0.1"]
+                ],
+                "paths": {
+                    "core": path + "/framework/core",
+                    "lib": path + +"/framework/lib",
+                    "security": path + "/framework/security"
+                }
+            });
+        })();
+
+        $(function () {
+            seajs.use("/js/file/file.view");
+        });
+
+
+    </script>
+</head>
+
+<body>
+<div id="toolbar" style="height: 33px;margin-top: 7px;">
+    <div class="container">
+        <label class="lable-content">菜单名称：</label>
+        <div class="text-content">
+            <input id="name" type="text" name="name" class="form-control" placeholder="输入菜单名称">
+        </div>
+    </div>
+    <div class="container">
+        <label class="lable-content">父菜单名称：</label>
+        <div class="text-content">
+            <input id="fName" type="text" name="fName" class="form-control" placeholder="输入父菜单名称">
+        </div>
+    </div>
+
+    <div class="btn-content">
+        <input type="button" class="btn btn-primary" id="btn_search" value="查询" />
+    </div>
+    <table class="table" id="table-panel"></table>
+</div>
+</body>
+</html>

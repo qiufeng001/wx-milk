@@ -9739,4 +9739,87 @@
  [INFO ]2018-12-13 18:01:14[http-nio-80-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
  [INFO ]2018-12-13 18:01:16[http-nio-80-exec-19]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
  [INFO ]2018-12-13 18:01:16[http-nio-80-exec-8]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 09:15:12[http-nio-81-exec-1]performance.web:(LoginController.java:70).string,/,jump to:/admin/login.html,takes time:356ms
+ [INFO ]2018-12-14 09:15:13[http-nio-81-exec-10]performance.web:(LoginController.java:70).index,/login,jump to:/admin/login.html,takes time:9ms
+ [INFO ]2018-12-14 09:15:13[http-nio-81-exec-2]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:74ms
+ [INFO ]2018-12-14 09:15:21[http-nio-81-exec-14]performance.web:(LoginController.java:70).login,/signin,takes time:407ms
+ [INFO ]2018-12-14 09:15:22[http-nio-81-exec-13]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:311ms
+ [INFO ]2018-12-14 09:15:22[http-nio-81-exec-10]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-14 09:17:29[http-nio-81-exec-9]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:36ms
+ [INFO ]2018-12-14 09:17:30[http-nio-81-exec-13]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-14 09:18:17[http-nio-81-exec-16]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 09:19:26[http-nio-81-exec-5]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:26ms
+ [INFO ]2018-12-14 09:19:26[http-nio-81-exec-16]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 09:19:26[http-nio-81-exec-19]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:0ms
+ [INFO ]2018-12-14 16:42:31[http-nio-81-exec-1]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:891ms
+ [INFO ]2018-12-14 16:42:32[http-nio-81-exec-13]performance.web:(BasicErrorController.java:70).error,/error,takes time:128ms
+ [INFO ]2018-12-14 16:42:32[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:2ms
+ [INFO ]2018-12-14 16:42:37[http-nio-81-exec-19]performance.web:(AbstractController.java:70).index(UserController),/user/,jump to:/admin/user/index.html,takes time:37ms
+ [INFO ]2018-12-14 16:42:37[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 16:42:37[http-nio-81-exec-4]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544776957182,takes time:209ms
+ [INFO ]2018-12-14 16:42:37[http-nio-81-exec-2]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:331ms
+ [INFO ]2018-12-14 16:42:39[http-nio-81-exec-3]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544776957183,takes time:22ms
+ [INFO ]2018-12-14 16:42:41[http-nio-81-exec-8]performance.web:(UserController.java:70).edit,/user/edit?id=,jump to:/admin/user/edit.html,takes time:26ms
+ [INFO ]2018-12-14 16:42:41[http-nio-81-exec-23]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 16:42:58[http-nio-81-exec-22]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:6040ms
+ [INFO ]2018-12-14 16:43:19[http-nio-81-exec-14]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:8ms
+ [INFO ]2018-12-14 16:43:33[http-nio-81-exec-19]performance.web:(AbstractController.java:70).index(UserController),/user/,jump to:/admin/user/index.html,takes time:16ms
+ [INFO ]2018-12-14 16:43:33[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 16:43:33[http-nio-81-exec-4]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:14ms
+ [INFO ]2018-12-14 16:43:33[http-nio-81-exec-7]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013053,takes time:19ms
+ [INFO ]2018-12-14 16:43:34[http-nio-81-exec-2]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013054,takes time:23ms
+ [INFO ]2018-12-14 16:43:35[http-nio-81-exec-3]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013055,takes time:25ms
+ [INFO ]2018-12-14 16:43:35[http-nio-81-exec-8]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013056,takes time:30ms
+ [INFO ]2018-12-14 16:43:35[http-nio-81-exec-23]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013057,takes time:17ms
+ [INFO ]2018-12-14 17:04:00[http-nio-81-exec-1]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544777013058,takes time:192ms
+ [INFO ]2018-12-14 17:04:00[http-nio-81-exec-2]performance.web:(UserController.java:70).edit,/user/edit?id=,jump to:/admin/user/edit.html,takes time:205ms
+ [INFO ]2018-12-14 17:04:00[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:18ms
+ [INFO ]2018-12-14 17:04:04[http-nio-81-exec-4]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:40ms
+ [INFO ]2018-12-14 17:04:17[http-nio-81-exec-5]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:11ms
+ [INFO ]2018-12-14 17:12:09[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:49ms
+ [INFO ]2018-12-14 17:13:33[http-nio-81-exec-2]performance.web:(BasicErrorController.java:70).error,/error,takes time:4ms
+ [INFO ]2018-12-14 17:13:59[http-nio-81-exec-1]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:160ms
+ [INFO ]2018-12-14 17:14:00[http-nio-81-exec-2]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:242ms
+ [INFO ]2018-12-14 17:14:00[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:17ms
+ [INFO ]2018-12-14 17:14:00[http-nio-81-exec-4]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:3ms
+ [INFO ]2018-12-14 17:14:01[http-nio-81-exec-5]performance.web:(AbstractController.java:70).index(UserController),/user/,jump to:/admin/user/index.html,takes time:20ms
+ [INFO ]2018-12-14 17:14:01[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-14 17:14:01[http-nio-81-exec-8]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:33ms
+ [INFO ]2018-12-14 17:14:01[http-nio-81-exec-7]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544778841822,takes time:41ms
+ [INFO ]2018-12-14 17:14:03[http-nio-81-exec-9]performance.web:(UserController.java:70).edit,/user/edit?id=,jump to:/admin/user/edit.html,takes time:27ms
+ [INFO ]2018-12-14 17:14:03[http-nio-81-exec-10]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 17:14:06[http-nio-81-exec-1]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:18ms
+ [INFO ]2018-12-14 17:14:19[http-nio-81-exec-2]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:2315ms
+ [INFO ]2018-12-14 17:22:07[http-nio-81-exec-1]performance.web:(UserController.java:70).createOrUpdate,/user/createOrUpdate,takes time:191ms
+ [INFO ]2018-12-14 17:25:34[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:53ms
+ [INFO ]2018-12-14 17:25:40[http-nio-81-exec-2]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:286ms
+ [INFO ]2018-12-14 17:25:40[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-14 17:25:40[http-nio-81-exec-4]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:1ms
+ [INFO ]2018-12-14 17:25:41[http-nio-81-exec-5]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:40ms
+ [INFO ]2018-12-14 17:25:41[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 17:25:47[http-nio-81-exec-7]performance.web:(HomeController.java:70).index,/home/index,jump to:/common/index.html,takes time:32ms
+ [INFO ]2018-12-14 17:25:47[http-nio-81-exec-8]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-14 17:25:47[http-nio-81-exec-9]performance.web:(BasicErrorController.java:70).error,/error?v=3.2.1,takes time:3ms
+ [INFO ]2018-12-14 17:25:55[http-nio-81-exec-10]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:7ms
+ [INFO ]2018-12-14 17:25:55[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 17:30:16[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:142ms
+ [INFO ]2018-12-14 17:30:16[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:59ms
+ [INFO ]2018-12-14 17:30:16[http-nio-81-exec-4]performance.web:(AbstractController.java:70).index(MenuController),/menu/,jump to:/admin/menu/index.html,takes time:35ms
+ [INFO ]2018-12-14 17:30:17[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:3ms
+ [INFO ]2018-12-14 17:30:17[http-nio-81-exec-2]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:106ms
+ [INFO ]2018-12-14 17:30:17[http-nio-81-exec-1]performance.web:(BaseController.java:70).selectByPage(MenuController),/menu/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544779817038,takes time:109ms
+ [INFO ]2018-12-14 17:30:17[http-nio-81-exec-4]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:4ms
+ [INFO ]2018-12-14 17:30:17[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:1ms
+ [INFO ]2018-12-14 17:30:18[http-nio-81-exec-7]performance.web:(AbstractController.java:70).index(MenuController),/menu/,jump to:/admin/menu/index.html,takes time:20ms
+ [INFO ]2018-12-14 17:30:18[http-nio-81-exec-6]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-14 17:30:18[http-nio-81-exec-8]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:8ms
+ [INFO ]2018-12-14 17:30:18[http-nio-81-exec-5]performance.web:(BaseController.java:70).selectByPage(MenuController),/menu/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544779818765,takes time:24ms
+ [INFO ]2018-12-14 17:30:19[http-nio-81-exec-9]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:10ms
+ [INFO ]2018-12-14 17:30:19[http-nio-81-exec-10]performance.web:(BasicErrorController.java:70).error,/error,takes time:2ms
+ [INFO ]2018-12-14 17:30:37[http-nio-81-exec-1]performance.web:(AbstractController.java:70).index(UserController),/user/,jump to:/admin/user/index.html,takes time:122ms
+ [INFO ]2018-12-14 17:30:37[http-nio-81-exec-2]performance.web:(BasicErrorController.java:70).error,/error,takes time:71ms
+ [INFO ]2018-12-14 17:30:37[http-nio-81-exec-5]performance.web:(MenuController.java:70).selectDictions,/menu/selectDictionsByAccount,takes time:129ms
+ [INFO ]2018-12-14 17:30:37[http-nio-81-exec-4]performance.web:(BaseController.java:70).selectByPage(UserController),/user/list?rows=10&page=1&sortOrder=asc&paramsMap%5Bname%5D=&paramsMap%5BfName%5D=&_=1544779837437,takes time:144ms
+ [INFO ]2018-12-14 17:31:09[http-nio-81-exec-1]performance.web:(BasicErrorController.java:70).errorHtml,/error,jump to:error/404.html,takes time:133ms
+ [INFO ]2018-12-14 17:31:09[http-nio-81-exec-3]performance.web:(BasicErrorController.java:70).error,/error,takes time:81ms
  

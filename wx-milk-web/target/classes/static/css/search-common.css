@@ -1,0 +1,30 @@
+/* 查询框样式 */
+.container {
+	float: left;
+	display: inline-block;
+	margin-right:30px;
+}
+
+.lable-content,.text-content,.btn-content{
+	float: left;
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+.lable-content,.text-content input[type='text'],.btn-content .btn {
+	height: 30px;
+	font-size: 12px;
+}
+.btn-content .btn {
+	margin-bottom: 10px;
+}
+.lable-content {
+	margin-top: 14px;
+}
+
+.heading {
+	float: left;
+	display: inline-block;
+	margin-top: 42px;
+	margin-bottom: 2px;
+}
