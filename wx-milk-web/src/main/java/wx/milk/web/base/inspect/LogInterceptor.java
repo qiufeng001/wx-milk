@@ -113,7 +113,7 @@ public class LogInterceptor implements HandlerInterceptor {
 		 //用户
 		 User user = JsonUtils.fromJson(RedisUtils.getUserJsonByToken(request), User.class);
 		 if(user!=null) {
-		 	sb.append(",user:").append(user.getName());
+		 	sb.append(", user:").append(user.getName());
 		 }
 		log.info(sb.toString());
 	}
