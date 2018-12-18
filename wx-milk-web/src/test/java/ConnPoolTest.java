@@ -8,7 +8,7 @@ public class ConnPoolTest {
      */
     @SuppressWarnings("all")
     public static void main(String[] args) {
-        ConnPoolUtil util = new ConnPoolUtil();
+       /* ConnPoolUtil util = new ConnPoolUtil();
         try {
             Connection conn = util.getConnection();
             if (conn != null) {
@@ -17,7 +17,7 @@ public class ConnPoolTest {
             util.CloseConnection(conn, null, null);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 }

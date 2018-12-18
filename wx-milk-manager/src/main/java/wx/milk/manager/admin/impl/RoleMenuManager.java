@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import wx.base.service.IService;
 import wx.exception.manager.ManagerException;
 import wx.milk.manager.admin.IRoleMenuManager;
-import wx.milk.manager.impl.BaseManager;
+import wx.base.manager.impl.BaseManager;
 import wx.milk.model.RoleMenu;
 import wx.milk.service.admin.IRoleMenuService;
 

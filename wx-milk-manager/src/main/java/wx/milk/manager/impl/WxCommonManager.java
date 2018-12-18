@@ -2,14 +2,12 @@ package wx.milk.manager.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import wx.base.manager.impl.BaseManager;
 import wx.base.service.IService;
 import wx.exception.manager.ManagerException;
 import wx.milk.manager.IWxCommonManager;
-import wx.milk.manager.IWxJobManager;
 import wx.milk.model.WxCommon;
-import wx.milk.model.WxJob;
 import wx.milk.service.IWxCommonService;
-import wx.milk.service.IWxJobService;
 import wx.query.Query;
 
 @Service

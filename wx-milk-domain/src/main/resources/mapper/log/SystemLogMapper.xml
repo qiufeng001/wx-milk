@@ -125,9 +125,7 @@
 			<if test="createUser != null">
 				create_user,
 			</if>
-			<if test="createTime != null">
-				create_time,
-			</if>
+
 			<if test="updateTime != null">
 				update_time,
 			</if>
@@ -170,9 +168,7 @@
 			<if test="params != null">
 				#{params},
 			</if>
-			<if test="createTime != null">
-				#{createTime},
-			</if>
+
 			<if test="createUser != null">
 				#{createUser},
 			</if>
@@ -218,9 +214,7 @@
 			<if test="exceptionDetail != null">
 				exception_detail = #{exceptionDetail},
 			</if>
-			<if test="createTime != null">
-				create_time = #{createTime},
-			</if>
+
 			<if test="createUser != null">
 				create_user = #{createUser},
 			</if>

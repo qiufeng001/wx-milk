@@ -13,8 +13,6 @@ import java.util.Date;
  * try it bast!
  */
 public class SystemLog extends BasicEntity {
-    /* 日志id */
-    private String id;
     /* 操作人信息 */
     private String operateUser;
     /* 操作的ip */
@@ -58,16 +56,6 @@ public class SystemLog extends BasicEntity {
         public String getDescription() {
             return description;
         }
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getOperateUser() {

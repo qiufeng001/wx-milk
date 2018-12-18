@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import wx.base.service.IService;
 import wx.exception.manager.ManagerException;
 import wx.milk.manager.admin.IUserManager;
-import wx.milk.manager.impl.BaseManager;
+import wx.base.manager.impl.BaseManager;
 import wx.milk.model.Role;
 import wx.milk.service.admin.IUserService;
 import wx.security.User;

@@ -41,7 +41,7 @@ public class SystemLogAspect {
     /**
      * 插入日志
      */
-    @Pointcut("execution(* wx.base.service.*.insert(..))")
+    @Pointcut("execution(* wx.base.manager.impl.*.insert(..))")
     public void insert() {
 
     }
@@ -49,7 +49,7 @@ public class SystemLogAspect {
     /**
      * 修改日志
      */
-    @Pointcut("execution(* wx.base.service.*.update(..))")
+    @Pointcut("execution(* wx.base.manager.impl.*.update(..))")
     public void update() {
 
     }
@@ -57,13 +57,13 @@ public class SystemLogAspect {
     /**
      * 删除日志
      */
-    @Pointcut("execution(* wx.base.service.*.delete*(..))")
+    @Pointcut("execution(* wx.base.manager.impl.*.delete*(..))")
     public void delete() {
 
     }
 
-    @AfterReturning(value = "insert()", returning = "object")
-    public void insertLog(JoinPoint joinPoint, Object object) throws Throwable {
+    @AfterReturning(value = "insert()")
+    public void insertLog(JoinPoint joinPoint) throws Throwable {
         // request.getSession().getAttribute("businessAdmin");
         // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
@@ -77,7 +77,7 @@ public class SystemLogAspect {
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.INSERT);
         log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
-        log.setCreateTime(new Date());
+        log.setParams(opContent);
         systemLogManager.insert(log);
     }
 
@@ -96,7 +96,7 @@ public class SystemLogAspect {
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.DELETE);
         log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
-        log.setCreateTime(new Date());
+        log.setParams(opContent);
         systemLogManager.insert(log);
     }
 
@@ -115,7 +115,6 @@ public class SystemLogAspect {
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.UPDATE);
         log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
-        log.setCreateTime(new Date());
         log.setParams(opContent);
         systemLogManager.insert(log);
     }

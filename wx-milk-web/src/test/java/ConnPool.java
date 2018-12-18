@@ -1,3 +1,4 @@
+/*
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,12 +16,14 @@ import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
+*/
 /**
  * 简单实现数据库连接池
  * 采用代理模式
  * @author wds
  *
- */
+ *//*
+
 public class ConnPool implements DataSource {
 
     //使用LinkedList集合存放数据库连接
@@ -56,9 +59,11 @@ public class ConnPool implements DataSource {
 
     }
 
-    /**
+    */
+/**
      * 获取数据库连接
-     */
+     *//*
+
     public Connection getConnection() throws SQLException {
         if(connPool.size() > 0){
             //从集合中获取一个连接
@@ -116,4 +121,4 @@ public class ConnPool implements DataSource {
     }
 
 
-}
+}*/

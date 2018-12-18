@@ -1,3 +1,4 @@
+/*
 package wx.milk.web.controller.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,3 +75,4 @@ public class JDBCPoolController {
         return result;
     }
 }
+*/

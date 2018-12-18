@@ -1,4 +1,4 @@
-package wx.milk.manager.impl;
+package wx.base.manager.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

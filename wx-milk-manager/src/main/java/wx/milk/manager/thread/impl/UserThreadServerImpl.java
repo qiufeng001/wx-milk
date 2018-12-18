@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import wx.base.service.IService;
-import wx.milk.manager.impl.BaseManager;
+import wx.base.manager.impl.BaseManager;
 import wx.milk.manager.thread.IUserThreadServer;
 import wx.milk.service.admin.IUserService;
 import wx.security.User;

@@ -7,7 +7,6 @@ import wx.milk.service.IJdbcPool;
 import wx.security.User;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationHandler;
@@ -20,6 +19,7 @@ import java.sql.SQLFeatureNotSupportedException;
 import java.util.LinkedList;
 import java.util.Properties;
 import java.util.logging.Logger;
+/*
 
 @Service
 public class JdbcPoolImpl extends BaseService<User, String> implements IJdbcPool, DataSource {
@@ -132,3 +132,4 @@ public class JdbcPoolImpl extends BaseService<User, String> implements IJdbcPool
         return null;
     }
 }
+*/
