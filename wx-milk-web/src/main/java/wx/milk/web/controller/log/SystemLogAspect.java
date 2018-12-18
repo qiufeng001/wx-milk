@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 定义日志切入类
- *
+ * <p>
  * 这里重点是 ThreadLocal 的使用
  * auther: kiven on 2018/8/24/024 17:55
  * try it bast!
@@ -74,7 +74,7 @@ public class SystemLogAspect {
     public void insertLog(JoinPoint joinPoint) throws Throwable {
         // 判断参数
         boolean flag = (threadLocal.get().get(Thread.currentThread().getId() + "")).equalsIgnoreCase(SystemLog.OperatorType.INSERT.getText());
-        if(flag) {
+        if (flag) {
             request = getHttpServletRequest();
             if (joinPoint.getArgs() == null) {// 没有参数
                 return;
@@ -85,7 +85,10 @@ public class SystemLogAspect {
             String opContent = optionContent(joinPoint.getArgs(), methodName);
 
             SystemLog log = new SystemLog();
+            log.setIp(WebUtils.getRequestIp(request));
+            log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
             log.setOperatorType(SystemLog.OperatorType.INSERT);
+            log.setExecuteDate(new Date());
             log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
             log.setParams(opContent);
             systemLogManager.insert(log);
@@ -94,8 +97,7 @@ public class SystemLogAspect {
 
     @After(value = "delete()")
     public void deleteLog(JoinPoint joinPoint) throws Throwable {
-        // request.getSession().getAttribute("businessAdmin");
-
+        request = getHttpServletRequest();
         Map<String, String> map = new ConcurrentHashMap<>();
         map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.DELETE.getText());
         threadLocal.set(map);
@@ -109,19 +111,23 @@ public class SystemLogAspect {
         String opContent = optionContent(joinPoint.getArgs(), methodName);
 
         SystemLog log = new SystemLog();
+        log.setExecuteDate(new Date());
+        log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
         log.setOperatorType(SystemLog.OperatorType.DELETE);
         log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
         log.setParams(opContent);
+        log.setIp(WebUtils.getRequestIp(request));
         systemLogManager.insert(log);
     }
 
     @After(value = "update()")
     public void updateLog(JoinPoint joinPoint) throws Throwable {
-        // request.getSession().getAttribute("businessAdmin");
-        // 判断参数
+        request = getHttpServletRequest();
+
         Map<String, String> map = new ConcurrentHashMap<>();
         map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.UPDATE.getText());
         threadLocal.set(map);
+        // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
             return;
         }
@@ -131,6 +137,9 @@ public class SystemLogAspect {
         String opContent = optionContent(joinPoint.getArgs(), methodName);
 
         SystemLog log = new SystemLog();
+        log.setExecuteDate(new Date());
+        log.setIp(WebUtils.getRequestIp(request));
+        log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
         log.setOperatorType(SystemLog.OperatorType.UPDATE);
         log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
         log.setParams(opContent);
@@ -145,8 +154,7 @@ public class SystemLogAspect {
      */
     // @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
-                .getRequestAttributes()).getRequest();
+        request = getHttpServletRequest();
         Map<String, String> map = new ConcurrentHashMap<>();
         map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.EXCEPTION.getText());
         threadLocal.set(map);
@@ -165,7 +173,7 @@ public class SystemLogAspect {
             log.setDescription(getServiceMthodDescription(joinPoint, e));
             log.setExceptionCode(e.getClass().getName());
             log.setOperatorType(SystemLog.OperatorType.EXCEPTION);
-            log.setExceptionDetail(e.getClass().getName() + ": " +e.getMessage());
+            log.setExceptionDetail(e.getClass().getName() + ": " + e.getMessage());
             log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
             log.setParams(params);
             log.setOperateUser(user);
@@ -254,9 +262,9 @@ public class SystemLogAspect {
         return description;
     }
 
-    public HttpServletRequest getHttpServletRequest(){
+    public HttpServletRequest getHttpServletRequest() {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
-        ServletRequestAttributes sra = (ServletRequestAttributes)ra;
+        ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
         return request;
     }
