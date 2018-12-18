@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import wx.milk.manager.admin.IDictionsManager;
+import wx.milk.web.configuration.WxConfig;
 import wx.milk.web.utils.RedisUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +19,10 @@ public class SecurityInterceptor implements HandlerInterceptor {
 			throws Exception {
 
 		String url = request.getRequestURI();
-		GlobalFilter.setResponse(response);
-		request.setAttribute("rootpath", request.getContextPath().replaceAll("//", "/"));
+		// GlobalFilter.setResponse(response);
+
+//		request.setAttribute("rootpath", request.getContextPath().replaceAll("//", "/"));
+		request.setAttribute("rootpath", ExecutionContext.get(WxConfig.CONTEXT_PATH).replaceAll("//", "/"));
 
 		if (url.indexOf("sys/") >= 0 || url.indexOf(".ig") > 0 || url.indexOf("/druid/") > 0) {
 			return true;
@@ -58,6 +61,6 @@ public class SecurityInterceptor implements HandlerInterceptor {
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		GlobalFilter.clear();
+		// GlobalFilter.clear();
 	}
 }

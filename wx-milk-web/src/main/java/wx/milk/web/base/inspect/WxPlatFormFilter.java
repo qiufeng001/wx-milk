@@ -1,5 +1,6 @@
 package wx.milk.web.base.inspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Component;
 import wx.milk.web.configuration.WxConfig;
@@ -40,15 +41,19 @@ public class WxPlatFormFilter implements Filter {
         // 如果是登录的话，获取登录的时间，设置登录时间，超过时间则退出登录，直接跳转到登录页面
         String requestURI = request.getRequestURI();
 
-        if (requestURI.contains("/home/index")) {
+        if (requestURI.contains("/signout")) {
+            ExecutionContext.setContextMap(null);
+        }else{
             long startTime = System.currentTimeMillis();
             contextMap.put(WxConfig.LOGIN_START_TIME, startTime + "");
             contextMap.put(WxConfig.WX_SESSION_ID, "wx_session_id_" + CookieUtils.getValue(request));
             contextMap.put(WxConfig.USER_IP, request.getRemoteAddr());
+            contextMap.put(WxConfig.CONTEXT_PATH, request.getContextPath());
+            /*if(joinPoint != null) {
+                contextMap.put(WxConfig.JOINT_POINT_METHOD_NAME, joinPoint.getSignature().getName());
+            }*/
 
             ExecutionContext.setContextMap(contextMap);
-        }else if(requestURI.contains("/signout")) {
-            ExecutionContext.setContextMap(null);
         }
         chain.doFilter(request, response);
     }

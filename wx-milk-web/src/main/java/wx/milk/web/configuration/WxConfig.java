@@ -9,4 +9,6 @@ public class WxConfig {
     public static final String WX_SESSION_ID = "wx_session_id";
     public static final String LOGIN_START_TIME = "login_start_time";
     public static final String USER_IP = "user_ip";
+    public static final String CONTEXT_PATH = "context_path";
+    public static final String JOINT_POINT_METHOD_NAME = "joint_point_method_name";
 }

@@ -18,9 +18,11 @@ public class CookieUtils {
     public static String getValue(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String sessionId = "";
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("JSESSIONID")){
-                sessionId = cookie.getValue();
+        if(cookies != null) {
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("JSESSIONID")){
+                    sessionId = cookie.getValue();
+                }
             }
         }
         return sessionId;

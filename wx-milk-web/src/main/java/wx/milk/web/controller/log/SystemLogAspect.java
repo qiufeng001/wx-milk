@@ -10,6 +10,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import wx.milk.manager.ISystemLogManager;
 import wx.milk.model.log.SystemLog;
+import wx.milk.web.configuration.WxConfig;
 import wx.milk.web.utils.RedisUtils;
 import wx.milk.web.utils.WebUtils;
 import wx.util.JsonUtil;
@@ -93,6 +94,8 @@ public class SystemLogAspect {
             log.setParams(opContent);
             systemLogManager.insert(log);
         }
+
+        threadLocal.remove();
     }
 
     @After(value = "delete()")
@@ -133,6 +136,7 @@ public class SystemLogAspect {
         }
         // 获取方法名
         String methodName = joinPoint.getSignature().getName();
+        request.setAttribute(WxConfig.JOINT_POINT_METHOD_NAME, methodName);
         // 获取操作内容
         String opContent = optionContent(joinPoint.getArgs(), methodName);
 

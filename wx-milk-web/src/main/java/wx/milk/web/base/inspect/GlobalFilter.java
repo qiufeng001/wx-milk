@@ -1,3 +1,4 @@
+/*
 package wx.milk.web.base.inspect;
 
 import org.springframework.core.annotation.Order;
@@ -72,4 +73,4 @@ public class GlobalFilter implements Filter {
 		}
 
 	}
-}
+}*/
