@@ -7,6 +7,9 @@ import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import wx.milk.web.utils.RedisUtils;
+import wx.security.User;
+import wx.util.JsonUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -72,7 +75,7 @@ public class LogInterceptor implements HandlerInterceptor {
 	 */
 	private void logForDev(HttpServletRequest request, Object handler) {
 
-		String spiltStr = ",";
+		String spiltStr = ", ";
 		StringBuilder sb = new StringBuilder();
 		// 类及方法
 		if (handler instanceof HandlerMethod) {
@@ -107,15 +110,12 @@ public class LogInterceptor implements HandlerInterceptor {
 		if (startTime != null) {
 			sb.append(spiltStr).append("takes time:").append((System.currentTimeMillis() - startTime)).append("ms");
 		}
-		// //用户
-		// SystemUser
-		// user=(SystemUser)request.getSession(false).getAttribute(PublicContains.SESSION_USER);
-		// if(user!=null)
-		// {
-		// sb.append(",user:").append(user.getLoginName()).append(spiltStr);
-		// }
+		 //用户
+		 User user = JsonUtils.fromJson(RedisUtils.getUserJsonByToken(request), User.class);
+		 if(user!=null) {
+		 	sb.append(",user:").append(user.getName());
+		 }
 		log.info(sb.toString());
-
 	}
 
 }
