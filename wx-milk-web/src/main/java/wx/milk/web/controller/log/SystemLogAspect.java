@@ -3,7 +3,9 @@ package wx.milk.web.controller.log;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import wx.milk.manager.ISystemLogManager;
@@ -17,25 +19,31 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 定义日志切入类
+ *
+ * 这里重点是 ThreadLocal 的使用
  * auther: kiven on 2018/8/24/024 17:55
  * try it bast!
  */
-
+@Order(5)
 @Aspect
 @Component
 public class SystemLogAspect {
 
     @Autowired
     private ISystemLogManager systemLogManager;
+    private HttpServletRequest request;
+    private ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal();
 
     /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
      */
-    @Pointcut("@annotation(wx.milk.web.controller.log.SystemControllerLog)")
-    public void controllerAspect() {
+    @Pointcut("execution(* wx.base.manager.impl.*.*(..))")
+    public void exceptionAspect() {
     }
 
     /**
@@ -62,28 +70,35 @@ public class SystemLogAspect {
 
     }
 
-    @AfterReturning(value = "insert()")
+    @After(value = "insert()")
     public void insertLog(JoinPoint joinPoint) throws Throwable {
-        // request.getSession().getAttribute("businessAdmin");
         // 判断参数
-        if (joinPoint.getArgs() == null) {// 没有参数
-            return;
-        }
-        // 获取方法名
-        String methodName = joinPoint.getSignature().getName();
-        // 获取操作内容
-        String opContent = optionContent(joinPoint.getArgs(), methodName);
+        boolean flag = (threadLocal.get().get(Thread.currentThread().getId() + "")).equalsIgnoreCase(SystemLog.OperatorType.INSERT.getText());
+        if(flag) {
+            request = getHttpServletRequest();
+            if (joinPoint.getArgs() == null) {// 没有参数
+                return;
+            }
+            // 获取方法名
+            String methodName = joinPoint.getSignature().getName();
+            // 获取操作内容
+            String opContent = optionContent(joinPoint.getArgs(), methodName);
 
-        SystemLog log = new SystemLog();
-        log.setOperatorType(SystemLog.OperatorType.INSERT);
-        log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
-        log.setParams(opContent);
-        systemLogManager.insert(log);
+            SystemLog log = new SystemLog();
+            log.setOperatorType(SystemLog.OperatorType.INSERT);
+            log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+            log.setParams(opContent);
+            systemLogManager.insert(log);
+        }
     }
 
-    @AfterReturning(value = "delete()", returning = "object")
-    public void deleteLog(JoinPoint joinPoint, Object object) throws Throwable {
+    @After(value = "delete()")
+    public void deleteLog(JoinPoint joinPoint) throws Throwable {
         // request.getSession().getAttribute("businessAdmin");
+
+        Map<String, String> map = new ConcurrentHashMap<>();
+        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.DELETE.getText());
+        threadLocal.set(map);
         // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
             return;
@@ -100,10 +115,13 @@ public class SystemLogAspect {
         systemLogManager.insert(log);
     }
 
-    @AfterReturning(value = "update()", returning = "object")
-    public void updateLog(JoinPoint joinPoint, Object object) throws Throwable {
+    @After(value = "update()")
+    public void updateLog(JoinPoint joinPoint) throws Throwable {
         // request.getSession().getAttribute("businessAdmin");
         // 判断参数
+        Map<String, String> map = new ConcurrentHashMap<>();
+        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.UPDATE.getText());
+        threadLocal.set(map);
         if (joinPoint.getArgs() == null) {// 没有参数
             return;
         }
@@ -125,10 +143,13 @@ public class SystemLogAspect {
      * @param joinPoint
      * @param e
      */
-    @AfterThrowing(pointcut = "controllerAspect()", throwing = "e")
-    public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {
+    // @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
+    public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes()).getRequest();
+        Map<String, String> map = new ConcurrentHashMap<>();
+        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.EXCEPTION.getText());
+        threadLocal.set(map);
         // 获取登陆用户信息
         String user = RedisUtils.getUserJsonByToken(request);
         // 获取请求ip
@@ -141,14 +162,14 @@ public class SystemLogAspect {
         }
         try {
             SystemLog log = new SystemLog();
-            log.setDescription(getServiceMthodDescription(joinPoint));
+            log.setDescription(getServiceMthodDescription(joinPoint, e));
             log.setExceptionCode(e.getClass().getName());
             log.setOperatorType(SystemLog.OperatorType.EXCEPTION);
-            log.setExceptionDetail(e.getMessage());
+            log.setExceptionDetail(e.getClass().getName() + ": " +e.getMessage());
             log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
             log.setParams(params);
-            log.setCreateUser(user);
-            log.setCreateTime(new Date());
+            log.setOperateUser(user);
+            log.setExecuteDate(new Date());
             log.setIp(ip);
             // 保存数据库
             systemLogManager.insert(log);
@@ -206,7 +227,7 @@ public class SystemLogAspect {
      * @return 方法描述
      * @throws Exception
      */
-    public static String getServiceMthodDescription(JoinPoint joinPoint) throws Exception {
+    public static String getServiceMthodDescription(JoinPoint joinPoint, Exception e) throws Exception {
         //获取目标类名
         String targetName = joinPoint.getTarget().getClass().getName();
         //获取方法名
@@ -228,8 +249,15 @@ public class SystemLogAspect {
             if (clazzs.length != arguments.length) {
                 continue;
             }
-            description = method.getAnnotation(SystemServiceLog.class).description();
+            description = e.getLocalizedMessage();
         }
         return description;
+    }
+
+    public HttpServletRequest getHttpServletRequest(){
+        RequestAttributes ra = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes sra = (ServletRequestAttributes)ra;
+        HttpServletRequest request = sra.getRequest();
+        return request;
     }
 }

@@ -3,7 +3,7 @@
 <mapper namespace="wx.milk.domain.SystemLogRepository">
     <!-- auto generate -->
     <resultMap id="baseResultMap" type="wx.milk.model.log.SystemLog">
-         <id column="id" property="id" jdbcType="VARCHAR" />
+		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="operate_user" property="operateUser" jdbcType="VARCHAR" />
 		<result column="exction_method" property="exctionMethod" jdbcType="VARCHAR" />
 		<result column="ip" property="ip" jdbcType="VARCHAR" />
@@ -14,10 +14,6 @@
 		<result column="description" property="description" jdbcType="VARCHAR" />
 		<result column="params" property="params" jdbcType="VARCHAR" />
 		<result column="exception_detail" property="exceptionDetail" jdbcType="TIMESTAMP" />
-		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-		<result column="create_user" property="createUser" jdbcType="VARCHAR" />
-		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-		<result column="update_user" property="updateUser" jdbcType="VARCHAR" />
     </resultMap>
     
     <sql id="colums_condition">
@@ -98,12 +94,13 @@
 			<if test="exctionMethod != null">
 				exction_method,
 			</if>
-			<if test="operatorType != null">
-				operator_type,
-			</if>
 			<if test="ip != null">
 				ip,
 			</if>
+			<if test="operatorType != null">
+				operator_type,
+			</if>
+
 			<if test="executeDate != null">
 				execute_date,
 			</if>
@@ -122,16 +119,19 @@
 			<if test="exceptionDetail != null">
 				exception_detail,
 			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
 			<if test="createUser != null">
 				create_user,
 			</if>
-
 			<if test="updateTime != null">
 				update_time,
 			</if>
 			<if test="updateUser != null">
 				update_user,
 			</if>
+
 		</trim>
 
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -156,19 +156,22 @@
 			<if test="type != null">
 				#{type},
 			</if>
-			<if test="exceptionDetail != null">
-				#{exceptionDetail},
-			</if>
 			<if test="exceptionCode != null">
 				#{exceptionCode},
 			</if>
 			<if test="description != null">
 				#{description},
 			</if>
+
 			<if test="params != null">
 				#{params},
 			</if>
-
+			<if test="exceptionDetail != null">
+				#{exceptionDetail},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
 			<if test="createUser != null">
 				#{createUser},
 			</if>

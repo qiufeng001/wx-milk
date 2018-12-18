@@ -74,7 +74,6 @@ public class UserController extends BaseController<User, String> {
 
     @RequestMapping("/createOrUpdate")
     @ResponseBody
-    @SystemControllerLog(description = "ces", name = "doAfterThrowing")
     public JsonResult createOrUpdate(User user) {
         try {
             int count = validate(user);
