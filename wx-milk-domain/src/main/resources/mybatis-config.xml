@@ -20,7 +20,7 @@
 		<mapper resource="mapper/admin/MenuMapper.xml"/>
 		<mapper resource="mapper/admin/RoleMenuMapper.xml"/>
 		<!-- 日志类 -->
-		<mapper resource="mapper/job/WxJobMapper.xml"/>
+		<mapper resource="mapper/log/SystemLogMapper.xml"/>
 
 		<!-- 基础类 -->
 		<mapper resource="mapper/base/WxCommonMapper.xml"/>

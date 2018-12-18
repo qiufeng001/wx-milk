@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="wx.milk.domain.WxJobRepository">
     <!-- auto generate -->
-    <resultMap id="baseResultMap" type="wx.milk.model.WxJob">
+    <resultMap id="baseResultMap" type="wx.milk.model.log.SystemLog">
           <id column="id" property="id" jdbcType="VARCHAR" />        
           <result column="name" property="jobName" jdbcType="VARCHAR" />
           <result column="function_code" property="functionCode" jdbcType="VARCHAR" />
@@ -97,7 +97,7 @@
 		<include refid="condition" />
 	</select>
 
-	<insert id="insert" parameterType="wx.milk.model.WxJob">
+	<insert id="insert" parameterType="wx.milk.model.log.SystemLog">
 		INSERT INTO t_wx_job
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -173,7 +173,7 @@
 		</trim>
 	</insert>
 
-	<update id="update" parameterType="wx.milk.model.WxJob">
+	<update id="update" parameterType="wx.milk.model.log.SystemLog">
 		UPDATE t_user
 		<set>
 			<if test="userNo != null">

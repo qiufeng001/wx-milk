@@ -3,12 +3,11 @@ package wx.milk.web.controller.log;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import wx.milk.model.service.SystemLog;
-import wx.milk.service.ISystemLogService;
+import wx.milk.manager.ISystemLogManager;
+import wx.milk.model.log.SystemLog;
 import wx.milk.web.utils.RedisUtils;
 import wx.milk.web.utils.WebUtils;
 import wx.util.JsonUtil;
@@ -30,7 +29,7 @@ import java.util.Date;
 public class SystemLogAspect {
 
     @Autowired
-    private ISystemLogService systemLogService;
+    private ISystemLogManager systemLogManager;
 
     /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
@@ -77,9 +76,9 @@ public class SystemLogAspect {
 
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.INSERT);
-        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
         log.setCreateTime(new Date());
-        systemLogService.insert(log);
+        systemLogManager.insert(log);
     }
 
     @AfterReturning(value = "delete()", returning = "object")
@@ -96,9 +95,9 @@ public class SystemLogAspect {
 
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.DELETE);
-        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
         log.setCreateTime(new Date());
-        systemLogService.insert(log);
+        systemLogManager.insert(log);
     }
 
     @AfterReturning(value = "update()", returning = "object")
@@ -115,9 +114,10 @@ public class SystemLogAspect {
 
         SystemLog log = new SystemLog();
         log.setOperatorType(SystemLog.OperatorType.UPDATE);
-        log.setUserInfo(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+        log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
         log.setCreateTime(new Date());
-        systemLogService.insert(log);
+        log.setParams(opContent);
+        systemLogManager.insert(log);
     }
 
     /**
@@ -152,7 +152,7 @@ public class SystemLogAspect {
             log.setCreateTime(new Date());
             log.setIp(ip);
             // 保存数据库
-            systemLogService.insert(log);
+            systemLogManager.insert(log);
         } catch (Exception ex) {
             e.printStackTrace();
         }

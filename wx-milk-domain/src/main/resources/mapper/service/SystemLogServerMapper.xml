@@ -115,7 +115,7 @@
         <include refid="condition"/>
     </select>
 
-    <insert id="insert" parameterType="wx.milk.model.service.SystemLog">
+    <insert id="insert" parameterType="wx.milk.model.log.SystemLog">
         INSERT INTO t_wx_file
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -196,7 +196,7 @@
         </trim>
     </insert>
 
-    <update id="update" parameterType="wx.milk.model.service.SystemLog">
+    <update id="update" parameterType="wx.milk.model.log.SystemLog">
         UPDATE t_wx_file
         <set>
             <if test="fileName != null">

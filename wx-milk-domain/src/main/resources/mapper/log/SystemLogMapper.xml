@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wx.milk.domain.SystemLogRepository">
+    <!-- auto generate -->
+    <resultMap id="baseResultMap" type="wx.milk.model.log.SystemLog">
+         <id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="operate_user" property="operateUser" jdbcType="VARCHAR" />
+		<result column="exction_method" property="exctionMethod" jdbcType="VARCHAR" />
+		<result column="ip" property="ip" jdbcType="VARCHAR" />
+		<result column="operator_type" property="operatorType" jdbcType="VARCHAR" />
+		<result column="execute_date" property="executeDate" jdbcType="TIMESTAMP" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="exception_code" property="exceptionCode" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="params" property="params" jdbcType="VARCHAR" />
+		<result column="exception_detail" property="exceptionDetail" jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="create_user" property="createUser" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <sql id="colums_condition">
+     	id, operate_user, exction_method, ip, exction_method, operator_type, execute_date, type, exception_code,
+		description, params, exception_detail, create_time, create_user, update_time, update_user
+    </sql>
+
+    <sql id="condition">
+    	1 = 1
+    	<if test="null != params">
+    		<if test="null!=params.queryCondition and ''!=params.queryCondition">
+				And ${params.queryCondition}
+			</if>
+    		<if test="null != params.operatorType and '' != params.operatorType">
+    			and operator_type = #{params.operatorType}
+    		</if>
+    	</if>
+    </sql>
+    
+    <select id="selectByPage" resultMap="baseResultMap" resultType="map">
+    	SELECT 
+    	<include refid="colums_condition" />
+			 FROM `t_sys_log` t
+		WHERE <include refid="condition" />
+    </select>
+    
+    <select id="selectCount" resultType="java.lang.Integer">
+    	SELECT 
+    		count(1)
+		FROM `t_sys_log` t
+		WHERE <include refid="condition" />
+    </select>
+
+     <select id="selectByParams"  resultMap="baseResultMap" >
+    	SELECT 
+    		<include refid="colums_condition" />
+		FROM `t_sys_log` t
+		WHERE <include refid="condition" />
+    </select>
+
+	<!-- id>10 内置账户不能够删除 -->
+	<delete id="deleteByPrimaryKey">
+		DELETE FROM t_sys_log
+		WHERE id = #{id} AND id != 1
+	</delete>
+
+	<delete id="deleteByParams" parameterType="map">
+		DELETE
+		FROM t_sys_log
+		WHERE id != 1
+		<include refid="condition" />
+	</delete>
+    
+    <select id="findByPrimaryKey" resultMap="baseResultMap">
+		SELECT
+		<include refid="colums_condition" />
+		FROM t_sys_log t
+		WHERE id = #{id} limit 1
+	</select>
+
+	<select id="findByParam" resultMap="baseResultMap" parameterType="map">
+		SELECT
+		<include refid="colums_condition" />
+		FROM t_sys_log t
+		WHERE 
+		<include refid="condition" />
+	</select>
+
+	<insert id="insert" parameterType="wx.milk.model.log.SystemLog">
+		INSERT INTO t_sys_log
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="operateUser != null">
+				operate_user,
+			</if>
+			<if test="exctionMethod != null">
+				exction_method,
+			</if>
+			<if test="operatorType != null">
+				operator_type,
+			</if>
+			<if test="ip != null">
+				ip,
+			</if>
+			<if test="executeDate != null">
+				execute_date,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="exceptionCode != null">
+				exception_code,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="params != null">
+				params,
+			</if>
+			<if test="exceptionDetail != null">
+				exception_detail,
+			</if>
+			<if test="createUser != null">
+				create_user,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="updateUser != null">
+				update_user,
+			</if>
+		</trim>
+
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id},
+			</if>
+			<if test="operateUser != null">
+				#{operateUser},
+			</if>
+			<if test="exctionMethod != null">
+				#{exctionMethod},
+			</if>
+			<if test="ip != null">
+				#{ip},
+			</if>
+			<if test="operatorType != null">
+				#{operatorType},
+			</if>
+			<if test="executeDate != null">
+				#{executeDate},
+			</if>
+			<if test="type != null">
+				#{type},
+			</if>
+			<if test="exceptionDetail != null">
+				#{exceptionDetail},
+			</if>
+			<if test="exceptionCode != null">
+				#{exceptionCode},
+			</if>
+			<if test="description != null">
+				#{description},
+			</if>
+			<if test="params != null">
+				#{params},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="createUser != null">
+				#{createUser},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime},
+			</if>
+			<if test="updateUser != null">
+				#{updateUser},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="update" parameterType="wx.milk.model.log.SystemLog">
+		UPDATE t_user
+		<set>
+			<if test="operateUser != null">
+				operate_user = #{operateUser},
+			</if>
+			<if test="exctionMethod != null">
+				exction_method = #{exctionMethod},
+			</if>
+			<if test="ip != null">
+				ip = #{ip},
+			</if>
+			<if test="operatorType != null">
+				operator_type = #{operatorType},
+			</if>
+			<if test="executeDate != null">
+				execute_date = #{executeDate},
+			</if>
+			<if test="type != null">
+				type = #{type},
+			</if>
+			<if test="exceptionCode != null">
+				exception_code = #{exceptionCode},
+			</if>
+			<if test="description != null">
+				description = #{description},
+			</if>
+			<if test="params != null">
+				params = #{params},
+			</if>
+			<if test="exceptionDetail != null">
+				exception_detail = #{exceptionDetail},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime},
+			</if>
+			<if test="updateUser != null">
+				update_user = #{updateUser},
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+</mapper>

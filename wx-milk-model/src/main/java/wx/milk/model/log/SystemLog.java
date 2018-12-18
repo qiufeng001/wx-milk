@@ -1,4 +1,4 @@
-package wx.milk.model.service;
+package wx.milk.model.log;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,13 +15,12 @@ import java.util.Date;
 public class SystemLog extends BasicEntity {
     /* 日志id */
     private String id;
-    /* 操作人id */
-    private String userInfo;
+    /* 操作人信息 */
+    private String operateUser;
     /* 操作的ip */
     private String ip;
     /* 执行的方法 */
     private String exctionMethod;
-
     private OperatorType operatorType;
 
     /* 执行时间 */
@@ -61,20 +60,22 @@ public class SystemLog extends BasicEntity {
         }
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getUserInfo() {
-        return userInfo;
+    public String getOperateUser() {
+        return operateUser;
     }
 
-    public void setUserInfo(String userInfo) {
-        this.userInfo = userInfo;
+    public void setOperateUser(String operateUser) {
+        this.operateUser = operateUser;
     }
 
     public String getIp() {
@@ -91,6 +92,14 @@ public class SystemLog extends BasicEntity {
 
     public void setExctionMethod(String exctionMethod) {
         this.exctionMethod = exctionMethod;
+    }
+
+    public OperatorType getOperatorType() {
+        return operatorType;
+    }
+
+    public void setOperatorType(OperatorType operatorType) {
+        this.operatorType = operatorType;
     }
 
     public Date getExecuteDate() {
@@ -139,13 +148,5 @@ public class SystemLog extends BasicEntity {
 
     public void setExceptionDetail(String exceptionDetail) {
         this.exceptionDetail = exceptionDetail;
-    }
-
-    public OperatorType getOperatorType() {
-        return operatorType;
-    }
-
-    public void setOperatorType(OperatorType operatorType) {
-        this.operatorType = operatorType;
     }
 }
