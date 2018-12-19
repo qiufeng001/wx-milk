@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import wx.base.controller.BaseController;
 import wx.base.manager.IManager;
+import wx.milk.manager.admin.ICompanyManager;
 import wx.milk.manager.admin.IDictionsManager;
+import wx.milk.model.Company;
 import wx.milk.model.Dictions;
 
 /**
@@ -16,20 +18,20 @@ import wx.milk.model.Dictions;
  *         try it,do it best!
  */
 @Controller
-@RequestMapping("/dictions/*")
-public class DictionsController extends BaseController<Dictions, String> {
+@RequestMapping("/company/*")
+public class CompanyController extends BaseController<Company, String> {
 
     @Autowired
-    private IDictionsManager manager;
+    private ICompanyManager manager;
 
     @Override
-    protected IManager<Dictions, String> getManager() {
+    protected IManager<Company, String> getManager() {
         return manager;
     }
 
     @Override
     protected String getTemplateFolder() {
-        return "/admin/dictions";
+        return "/admin/company";
     }
 
 }

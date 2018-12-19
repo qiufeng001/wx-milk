@@ -3,7 +3,8 @@ package wx.milk.model;
 import wx.security.BasicEntity;
 
 /**
- * Created by Administrator on 2018/6/21/021.
+ *
+ * @author zhong.h
  */
 public class RoleMenu extends BasicEntity {
     private String roleNo;

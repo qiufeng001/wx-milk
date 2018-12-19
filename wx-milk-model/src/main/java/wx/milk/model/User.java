@@ -6,6 +6,10 @@ import wx.security.IUser;
 
 import java.util.List;
 
+/**
+ *
+ * @author zhong.h
+ */
 @ToString
 public class User extends BasicEntity implements IUser {
 

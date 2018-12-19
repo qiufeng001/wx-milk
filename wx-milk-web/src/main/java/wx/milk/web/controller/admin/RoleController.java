@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import wx.base.controller.BaseController;
 import wx.base.domain.DataChangeEntry;
 import wx.base.manager.IManager;
 import wx.exception.JsonManagerException;
@@ -27,17 +28,17 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/role/*")
-public class RoleController {
+public class RoleController extends BaseController<Role, String> {
 
     @Autowired
     private IRoleManager manager;
-
-    protected String getTempleteFolder() {
-        return "";
-    }
 
     protected IManager<Role, String> getManager() {
         return manager;
     }
 
+    @Override
+    protected String getTemplateFolder() {
+        return "/admin/role";
+    }
 }

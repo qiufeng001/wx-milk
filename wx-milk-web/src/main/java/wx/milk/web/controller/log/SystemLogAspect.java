@@ -130,26 +130,28 @@ public class SystemLogAspect {
     @AfterReturning(value = "update()")
     public void updateLog(JoinPoint joinPoint) throws Throwable {
         request = getHttpServletRequest();
-        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.UPDATE.getText());
+        if (!(request.getRequestURI()).contains("/signout")) {
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.UPDATE.getText());
 
-        // 判断参数
-        if (joinPoint.getArgs() == null) {// 没有参数
-            return;
+            // 判断参数
+            if (joinPoint.getArgs() == null) {// 没有参数
+                return;
+            }
+            // 获取方法名
+            String methodName = joinPoint.getSignature().getName();
+            request.setAttribute(WxConfig.JOINT_POINT_METHOD_NAME, methodName);
+            // 获取操作内容
+            String opContent = optionContent(joinPoint.getArgs(), methodName);
+
+            SystemLog log = new SystemLog();
+            log.setExecuteDate(new Date());
+            log.setIp(WebUtils.getRequestIp(request));
+            log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
+            log.setOperatorType(SystemLog.OperatorType.UPDATE);
+            log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
+            log.setParams(opContent);
+            systemLogManager.insert(log);
         }
-        // 获取方法名
-        String methodName = joinPoint.getSignature().getName();
-        request.setAttribute(WxConfig.JOINT_POINT_METHOD_NAME, methodName);
-        // 获取操作内容
-        String opContent = optionContent(joinPoint.getArgs(), methodName);
-
-        SystemLog log = new SystemLog();
-        log.setExecuteDate(new Date());
-        log.setIp(WebUtils.getRequestIp(request));
-        log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
-        log.setOperatorType(SystemLog.OperatorType.UPDATE);
-        log.setOperateUser(JsonUtil.obj2Json(ShiroUtils.getUser(), false));
-        log.setParams(opContent);
-        systemLogManager.insert(log);
     }
 
     /**
@@ -161,6 +163,10 @@ public class SystemLogAspect {
     @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         request = getHttpServletRequest();
+        Map<String, String> map = ExecutionContext.getContextMap();
+        if (map == null) {
+
+        }
         ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.EXCEPTION.getText());
 
         // 获取登陆用户信息

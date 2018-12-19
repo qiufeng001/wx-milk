@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import wx.base.controller.BaseController;
 import wx.base.manager.IManager;
 import wx.milk.manager.admin.IDictionsManager;
+import wx.milk.manager.admin.IZoneManager;
 import wx.milk.model.Dictions;
+import wx.milk.model.Zone;
 
 /**
  *
@@ -16,20 +18,20 @@ import wx.milk.model.Dictions;
  *         try it,do it best!
  */
 @Controller
-@RequestMapping("/dictions/*")
-public class DictionsController extends BaseController<Dictions, String> {
+@RequestMapping("/zone/*")
+public class ZoneController extends BaseController<Zone, String> {
 
     @Autowired
-    private IDictionsManager manager;
+    private IZoneManager manager;
 
     @Override
-    protected IManager<Dictions, String> getManager() {
+    protected IManager<Zone, String> getManager() {
         return manager;
     }
 
     @Override
     protected String getTemplateFolder() {
-        return "/admin/dictions";
+        return "/admin/zone";
     }
 
 }

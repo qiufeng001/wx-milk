@@ -23,8 +23,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
 		String url = request.getRequestURI();
 		// GlobalFilter.setResponse(response);
 
-//		request.setAttribute("rootpath", request.getContextPath().replaceAll("//", "/"));
-		request.setAttribute("rootpath", ExecutionContext.get(WxConfig.CONTEXT_PATH).replaceAll("//", "/"));
+		request.setAttribute("rootpath", request.getContextPath().replaceAll("//", "/"));
+//		request.setAttribute("rootpath", ExecutionContext.get(WxConfig.CONTEXT_PATH).replaceAll("//", "/"));
 
 		if (url.indexOf("sys/") >= 0 || url.indexOf(".ig") > 0 || url.indexOf("/druid/") > 0) {
 			return true;

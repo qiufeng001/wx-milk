@@ -6,6 +6,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author zhong.h
+ */
 public class UserModule  implements Serializable{
 
 	/**

@@ -1,12 +1,10 @@
 package wx.milk.web.base.inspect;
 
-import org.aspectj.lang.JoinPoint;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Component;
 import wx.milk.web.configuration.WxConfig;
 import wx.milk.web.utils.CookieUtils;
 import wx.milk.web.utils.DomainUtils;
-import wx.milk.web.utils.RedisUtils;
 import wx.redis.WxJedisCommands;
 import wx.redis.WxRedisClient;
 
@@ -52,7 +50,7 @@ public class WxPlatFormFilter implements Filter {
             contextMap.put(WxConfig.USER_IP, request.getRemoteAddr());
             contextMap.put(WxConfig.CONTEXT_PATH, request.getContextPath());
             contextMap.put(WxConfig.CURRENT_THEAD_ID, currentThreadId);
-            contextMap.put(currentThreadId, "");
+            contextMap.put(currentThreadId + "", "");
             ExecutionContext.setContextMap(contextMap);
         }
         chain.doFilter(request, response);

@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="wx.milk.domain.MenuRepository">
+<mapper namespace="wx.milk.domain.CompanyRepository">
     <!-- auto generate -->
-    <resultMap id="baseResultMap" type="wx.milk.model.Menu">
+    <resultMap id="baseResultMap" type="wx.milk.model.Company">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="f_name" property="fName" jdbcType="VARCHAR"/>
-        <result column="status" property="status" jdbcType="INTEGER"/>
-        <result column="p_id" property="pId" jdbcType="VARCHAR"/>
-        <result column="url" property="url" jdbcType="VARCHAR"/>
-        <result column="img" property="img" jdbcType="VARCHAR"/>
-        <result column="sequence" property="sequence" jdbcType="VARCHAR"/>
+        <result column="zone_id" property="zoneId" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="INTEGER"/>
+        <result column="phone_num" property="phoneNum" jdbcType="VARCHAR"/>
+        <result column="legal_person" property="legalPerson" jdbcType="VARCHAR"/>
+        <result column="legal_person_num" property="legalPersonNum" jdbcType="VARCHAR"/>
+        <result column="session_invalid_time" property="sessionInvalidTime" jdbcType="INTEGR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="update_user" property="updateUser" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="colums_condition">
-     	id, name , status, pid, url, img, sequence
+     	id, name , zone_id, status, address, phone_num, legal_person, session_invalid_time,
+     	create_time,create_user,update_time,update_user
     </sql>
 
     <sql id="condition">
@@ -23,17 +28,11 @@
             <if test="null!=params.queryCondition and ''!=params.queryCondition">
                 And ${params.queryCondition}
             </if>
-            <if test="null != params.pId and '' != params.pId">
-                and p_id = #{params.pId}
+            <if test="null != params.zoneId and '' != params.zoneId">
+                and zone_id = #{params.zoneId}
             </if>
             <if test="null != params.name and  '' != params.name">
-                and a.name like '%${params.name}%'
-            </if>
-            <if test="null != params.fName and  '' != params.fName">
-                and b.name like '%${params.fName}%'
-            </if>
-            <if test="null != params.status and '' != params.status">
-                and status = #{params.status}
+                and name like '%${params.name}%'
             </if>
             <if test="null != params.status and '' != params.status">
                 and status = #{params.status}
@@ -43,18 +42,8 @@
 
     <select id="selectByPage" resultMap="baseResultMap" resultType="map">
         SELECT
-            a.id,
-            a.pid,
-            a.`name` name,
-            b.`name` f_name,
-            a.url,
-            a.`status`,
-            a.create_user,
-            a.create_time,
-            a.update_time,
-            a.update_user
-        FROM t_menu a
-        LEFT JOIN t_menu b ON b.id = a.pid
+          <include refid="colums_condition" />
+        FROM t_company a
         WHERE
         <include refid="condition"/>
         order by name, f_name desc
@@ -68,42 +57,6 @@
         LEFT JOIN t_menu b ON b.id = a.pid
         WHERE
         <include refid="condition"/>
-    </select>
-
-    <!-- 根据用户的权限查询菜单 -->
-    <select id="selectByAccount" resultMap="baseResultMap">
-        SELECT
-        DISTINCT tm.id,
-            tm.pid p_id,
-            tm.`name`,
-            tm.url,
-            tm.sequence,
-            tm.create_user,
-            tm.update_user,
-            tm.create_time,
-            tm.update_time
-        FROM t_menu tm
-        JOIN t_role_menu trm ON trm.menu_id = tm.id
-        JOIN t_role tr ON tr.role_no = trm.role_no
-        JOIN t_user_role tur ON tur.role_no = tr.role_no
-        JOIN t_user tu ON tu.account = tur.account
-        WHERE 1 = 1
-        <if test="null != params.account and '' != params.account">
-            and tu.account = #{params.account}
-        </if>
-        and tm.status = 1
-        ORDER BY tm.id,tm.sequence DESC
-    </select>
-
-    <!-- 查询所有的父节点 -->
-    <select id="selectPid" resultMap="baseResultMap">
-        SELECT
-        DISTINCT  t.id,
-            t.name,
-            t.sequence
-        FROM t_menu t
-        where t.pid = '0'
-        ORDER BY t.sequence ASC
     </select>
 
     <select id="selectByParams" resultMap="baseResultMap">
@@ -152,20 +105,26 @@
             <if test="name != null">
                 name,
             </if>
+            <if test="zoneId != null">
+                zone_id,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="phoneNum != null">
+                phone_num,
+            </if>
+            <if test="legalPerson != null">
+                legal_person,
+            </if>
+            <if test="legalPersonNum != null">
+                legal_person_num,
+            </if>
+            <if test="sessionInvalidTime != null">
+                session_invalid_time,
+            </if>
             <if test="status != null">
                 status,
-            </if>
-            <if test="pId != null">
-                pid,
-            </if>
-            <if test="url != null">
-                url,
-            </if>
-            <if test="img != null">
-                img,
-            </if>
-            <if test="sequence != null">
-                sequence,
             </if>
             <if test="createUser != null">
                 create_user,
@@ -188,20 +147,26 @@
             <if test="name != null">
                 #{name},
             </if>
+            <if test="zoneId != null">
+                #{zoneId},
+            </if>
+            <if test="address != null">
+                #{address},
+            </if>
+            <if test="phoneNum != null">
+                #{phoneNum},
+            </if>
+            <if test="legalPerson != null">
+                #{legalPerson},
+            </if>
+            <if test="legalPersonNum != null">
+                #{legalPersonNum},
+            </if>
+            <if test="sessionInvalidTime != null">
+                #{sessionInvalidTime},
+            </if>
             <if test="status != null">
                 #{status},
-            </if>
-            <if test="pId != null">
-                #{pId},
-            </if>
-            <if test="url != null">
-                #{url},
-            </if>
-            <if test="img != null">
-                #{img},
-            </if>
-            <if test="sequence != null">
-                #{sequence},
             </if>
             <if test="createUser != null">
                 #{createUser},
@@ -224,20 +189,38 @@
             <if test="name != null">
                 name = #{name},
             </if>
+            <if test="zoneId != null">
+                zone_id = #{zoneId},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="phoneNum != null">
+                phone_num = #{phoneNum},
+            </if>
+            <if test="legalPerson != null">
+                legal_person = #{legalPerson},
+            </if>
+            <if test="legalPersonNum != null">
+                legal_person_num = #{legalPersonNum},
+            </if>
+            <if test="sessionInvalidTime != null">
+                session_invalid_time = #{sessionInvalidTime},
+            </if>
             <if test="status != null">
                 status = #{status},
             </if>
-            <if test="pId != null">
-                pid = #{pId},
+            <if test="createTime != null">
+                create_time = #{createTime},
             </if>
-            <if test="url != null">
-                url = #{url},
+            <if test="createUser != null">
+                create_user = #{createUser},
             </if>
-            <if test="img != null">
-                img = #{img},
+            <if test="updateTime != null">
+                update_time = #{updateTime},
             </if>
-            <if test="sequence != null">
-                sequence = #{sequence},
+            <if test="updateUser != null">
+                update_user = #{updateUser},
             </if>
         </set>
         WHERE id = #{id}

@@ -129,3 +129,34 @@ CREATE TABLE `t_sys_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 大区
+drop table if exists t_zone;
+CREATE TABLE `t_zone` (
+  `id` varchar(32) NOT NULL,
+  `name` varchar(64) DEFAULT NULL COMMENT '名称',
+  `number` varchar(32) DEFAULT NULL COMMENT '大区编号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='大区';
+
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('1', '华东', 'E');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('2', '华南', 'S');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('3', '华北', 'N');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('4', '华中', 'C');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('5', '西南', 'SW');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('6', '西北', 'NW');
+INSERT INTO t_zone (`id`, `name`, `number`) VALUES ('7', '东北', 'EN');
+
+-- 公司
+drop table if exists t_company;
+CREATE TABLE `t_company` (
+  `id` varchar(32) NOT NULL COMMENT '主键id',
+  `name` varchar(64) NOT NULL COMMENT '公司名称',
+  `zone_id` varchar(32) NOT NULL COMMENT '所属大区',
+  `address` varchar(255) NOT NULL COMMENT '公司地址',
+  `phone_num` varchar(32) DEFAULT NULL COMMENT '公司电话',
+  `legal_person` varchar(64) NOT NULL COMMENT '公司法人',
+  `legal_person_num` varchar(32) NOT NULL COMMENT '法人电话号码',
+  `session_invalid_time` int(11) DEFAULT NULL COMMENT 'session 失效时间（分钟）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO t_company (`id`, `name`, `zone_id`, `address`, `phone_num`, `legal_person`, `legal_person_num`, `session_invalid_time`) VALUES ('1', '屌丝公司', '1', '屌丝大道1号', '222222', '屌丝', '12122222223', '30');

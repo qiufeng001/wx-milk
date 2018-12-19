@@ -5,7 +5,8 @@ import wx.security.BasicEntity;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/6/14/014.
+ *
+ * @author zhong.h
  */
 public class RoleDictions extends BasicEntity {
     private String dictionsId;

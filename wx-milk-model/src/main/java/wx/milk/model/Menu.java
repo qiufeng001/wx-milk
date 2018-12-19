@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Kiven on 2018/6/21/021.
+ *
+ * @author zhong.h
  */
 public class Menu extends BasicEntity {
     // 菜单名称

@@ -4,6 +4,10 @@ import wx.security.BasicEntity;
 
 import java.util.List;
 
+/**
+ *
+ * @author zhong.h
+ */
 public class Role extends BasicEntity {
 
 	private static final long serialVersionUID = 8871041467485135556L;
