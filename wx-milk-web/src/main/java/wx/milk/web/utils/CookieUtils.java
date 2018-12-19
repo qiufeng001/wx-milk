@@ -43,7 +43,7 @@ public class CookieUtils {
         response.addCookie(cookie);
     }
 
-    public static String getLoginCookie(HttpServletRequest request) {
+    public static String getLoginToken(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String token = "";
         if(cookies != null && cookies.length > 0) {

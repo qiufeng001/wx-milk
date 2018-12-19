@@ -31,7 +31,7 @@ public class RedisUtils {
      * @param request http请求，其中携带保存用户 token 的 Cookie
      */
     public static void deleteLoginToken(HttpServletRequest request) {
-        commonJedis.del(CookieUtils.getLoginCookie(request));
+        commonJedis.del(CookieUtils.getLoginToken(request));
     }
 
     /**
@@ -41,7 +41,7 @@ public class RedisUtils {
      * @return
      */
     public static String getUserJsonByToken(HttpServletRequest request) {
-        return commonJedis.get(CookieUtils.getLoginCookie(request));
+        return commonJedis.get(CookieUtils.getLoginToken(request));
     }
 
     /**

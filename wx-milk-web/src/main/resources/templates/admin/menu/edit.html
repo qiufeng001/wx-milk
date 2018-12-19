@@ -31,8 +31,6 @@
 <body>
 
 <!-- 新增和修改菜单 -->
-<input type="hidden" value="${menu.id!}" id="id">
-<input type="hidden" value="${menu.name!}" id="oldName">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -40,6 +38,11 @@
         </div>
         <div class="modal-body">
             <form id="menuForm">
+                <input type="hidden" value="${menu.id!}" id="id"  name="id">
+                <input type="hidden" value="${menu.name!}" id="oldName">
+                <input type="hidden" value="${menu.createUser!}" id="createUser">
+                <input type="hidden" value="${menu.sequence!}" id="sequence">
+                <input type="hidden" value="${menu.createTime!}" id="createTime">
                 <div class="form-group">
                     <label>菜单名称</label>
                     <input type="text" class="form-control" name="name" id="name" value="${menu.name!}" width="100px;">

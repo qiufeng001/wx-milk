@@ -17,6 +17,15 @@ public class Menu extends BasicEntity {
     private String pId;
     // 菜单url
     private String url;
+
+    public String getpId() {
+        return pId;
+    }
+
+    public void setpId(String pId) {
+        this.pId = pId;
+    }
+
     // 菜单图标
     private String img;
     // 菜单状态

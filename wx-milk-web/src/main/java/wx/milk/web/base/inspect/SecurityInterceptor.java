@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import wx.milk.manager.admin.IDictionsManager;
+import wx.milk.model.log.SystemLog;
 import wx.milk.web.configuration.WxConfig;
+import wx.milk.web.utils.CookieUtils;
 import wx.milk.web.utils.RedisUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,5 +64,6 @@ public class SecurityInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		// GlobalFilter.clear();
+		ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), "");
 	}
 }

@@ -240,6 +240,6 @@
                 sequence = #{sequence},
             </if>
         </set>
-        WHERE id = #{id} OR account = #{account}
+        WHERE id = #{id}
     </update>
 </mapper>

@@ -11,4 +11,5 @@ public class WxConfig {
     public static final String USER_IP = "user_ip";
     public static final String CONTEXT_PATH = "context_path";
     public static final String JOINT_POINT_METHOD_NAME = "joint_point_method_name";
+    public static final String CURRENT_THEAD_ID = "current_thread_id";
 }

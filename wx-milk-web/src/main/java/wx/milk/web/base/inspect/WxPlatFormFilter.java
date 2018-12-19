@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import wx.milk.web.configuration.WxConfig;
 import wx.milk.web.utils.CookieUtils;
 import wx.milk.web.utils.DomainUtils;
+import wx.milk.web.utils.RedisUtils;
 import wx.redis.WxJedisCommands;
 import wx.redis.WxRedisClient;
 
@@ -33,7 +34,7 @@ public class WxPlatFormFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HashMap<String, String> contextMap = new HashMap<String, String>();
+        HashMap<String, String> contextMap = new HashMap<>();
 
         HttpServletRequest request = (HttpServletRequest) req;
         request.setAttribute(WxConfig.COOKIE_DOMAIN, getCookieDomain(request.getServerName()));
@@ -45,14 +46,13 @@ public class WxPlatFormFilter implements Filter {
             ExecutionContext.setContextMap(null);
         }else{
             long startTime = System.currentTimeMillis();
+            String currentThreadId = Thread.currentThread().getId() + "_" + CookieUtils.getLoginToken(request);
             contextMap.put(WxConfig.LOGIN_START_TIME, startTime + "");
             contextMap.put(WxConfig.WX_SESSION_ID, "wx_session_id_" + CookieUtils.getValue(request));
             contextMap.put(WxConfig.USER_IP, request.getRemoteAddr());
             contextMap.put(WxConfig.CONTEXT_PATH, request.getContextPath());
-            /*if(joinPoint != null) {
-                contextMap.put(WxConfig.JOINT_POINT_METHOD_NAME, joinPoint.getSignature().getName());
-            }*/
-
+            contextMap.put(WxConfig.CURRENT_THEAD_ID, currentThreadId);
+            contextMap.put(currentThreadId, "");
             ExecutionContext.setContextMap(contextMap);
         }
         chain.doFilter(request, response);

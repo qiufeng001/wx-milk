@@ -38,7 +38,8 @@ public class SystemLog extends BasicEntity {
         INSERT("插入", "insert"),
         UPDATE("修改", "update"),
         DELETE("删除", "delete"),
-        EXCEPTION("异常", "exception");
+        EXCEPTION("异常", "exception"),
+        STOP("停止切面", "stop");
 
         private String description;
 

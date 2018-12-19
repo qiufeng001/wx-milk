@@ -1,5 +1,6 @@
 package wx.milk.web.controller.log;
 
+import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import wx.milk.manager.ISystemLogManager;
 import wx.milk.model.log.SystemLog;
+import wx.milk.web.base.inspect.ExecutionContext;
 import wx.milk.web.configuration.WxConfig;
 import wx.milk.web.utils.RedisUtils;
 import wx.milk.web.utils.WebUtils;
@@ -38,19 +40,18 @@ public class SystemLogAspect {
     @Autowired
     private ISystemLogManager systemLogManager;
     private HttpServletRequest request;
-    private ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal();
 
     /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
      */
-    @Pointcut("execution(* wx.base.manager.impl.*.*(..))")
+    @Pointcut("execution(* wx.base.manager.impl.BaseManager.*(..))")
     public void exceptionAspect() {
     }
 
     /**
      * 插入日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.*.insert(..))")
+    @Pointcut("execution(* wx.base.manager.impl.BaseManager.insert(..))")
     public void insert() {
 
     }
@@ -58,7 +59,7 @@ public class SystemLogAspect {
     /**
      * 修改日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.*.update(..))")
+    @Pointcut("execution(* wx.base.manager.impl.BaseManager.update(..))")
     public void update() {
 
     }
@@ -66,16 +67,23 @@ public class SystemLogAspect {
     /**
      * 删除日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.*.delete*(..))")
+    @Pointcut("execution(* wx.base.manager.impl.BaseManager.delete*(..))")
     public void delete() {
 
     }
 
-    @After(value = "insert()")
+    @AfterReturning(value = "insert()")
     public void insertLog(JoinPoint joinPoint) throws Throwable {
+        String pointCutName = ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID));
+        if (StringUtils.isBlank(pointCutName)) {
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.INSERT.getText());
+        }
         // 判断参数
-        boolean flag = (threadLocal.get().get(Thread.currentThread().getId() + "")).equalsIgnoreCase(SystemLog.OperatorType.INSERT.getText());
+        boolean flag = (ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID)))
+                .equalsIgnoreCase(SystemLog.OperatorType.INSERT.getText());
+
         if (flag) {
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.STOP.getText());
             request = getHttpServletRequest();
             if (joinPoint.getArgs() == null) {// 没有参数
                 return;
@@ -84,7 +92,6 @@ public class SystemLogAspect {
             String methodName = joinPoint.getSignature().getName();
             // 获取操作内容
             String opContent = optionContent(joinPoint.getArgs(), methodName);
-
             SystemLog log = new SystemLog();
             log.setIp(WebUtils.getRequestIp(request));
             log.setExctionMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
@@ -94,16 +101,13 @@ public class SystemLogAspect {
             log.setParams(opContent);
             systemLogManager.insert(log);
         }
-
-        threadLocal.remove();
     }
 
-    @After(value = "delete()")
+    @AfterReturning(value = "delete()")
     public void deleteLog(JoinPoint joinPoint) throws Throwable {
         request = getHttpServletRequest();
-        Map<String, String> map = new ConcurrentHashMap<>();
-        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.DELETE.getText());
-        threadLocal.set(map);
+        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.DELETE.getText());
+
         // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
             return;
@@ -123,13 +127,11 @@ public class SystemLogAspect {
         systemLogManager.insert(log);
     }
 
-    @After(value = "update()")
+    @AfterReturning(value = "update()")
     public void updateLog(JoinPoint joinPoint) throws Throwable {
         request = getHttpServletRequest();
+        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.UPDATE.getText());
 
-        Map<String, String> map = new ConcurrentHashMap<>();
-        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.UPDATE.getText());
-        threadLocal.set(map);
         // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
             return;
@@ -156,12 +158,11 @@ public class SystemLogAspect {
      * @param joinPoint
      * @param e
      */
-    // @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
+    @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         request = getHttpServletRequest();
-        Map<String, String> map = new ConcurrentHashMap<>();
-        map.put(Thread.currentThread().getId() + "", SystemLog.OperatorType.EXCEPTION.getText());
-        threadLocal.set(map);
+        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.EXCEPTION.getText());
+
         // 获取登陆用户信息
         String user = RedisUtils.getUserJsonByToken(request);
         // 获取请求ip
