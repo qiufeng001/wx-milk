@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="wx.milk.domain.WxCommonRepository">
     <!-- 新增时候，为了排序，查询表中的排序数 -->
-    <resultMap id="CommonSequence" type="wx.milk.model.WxCommon">
+    <resultMap id="CommonSequence" type="com.framework.model.Common">
         <result column="sequecne" property="sequecne" jdbcType="VARCHAR"/>
     </resultMap>
 

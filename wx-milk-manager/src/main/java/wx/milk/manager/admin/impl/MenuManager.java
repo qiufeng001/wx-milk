@@ -1,13 +1,13 @@
 package wx.milk.manager.admin.impl;
 
+import com.framework.core.query.Query;
+import com.framework.manager.impl.BaseManager;
+import com.framework.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wx.base.service.IService;
 import wx.milk.manager.admin.IMenuManager;
-import wx.base.manager.impl.BaseManager;
 import wx.milk.model.Menu;
 import wx.milk.service.admin.IMenuService;
-import wx.query.Query;
 
 import java.util.List;
 

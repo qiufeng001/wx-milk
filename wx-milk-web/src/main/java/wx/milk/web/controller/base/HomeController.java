@@ -1,20 +1,20 @@
 package wx.milk.web.controller.base;
 
+import com.framework.core.query.Query;
+import com.framework.core.query.Statement;
+import com.framework.core.security.User;
+import com.framework.core.util.ShiroUtils;
+import com.framework.manager.IManager;
+import com.framework.web.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import wx.base.controller.BaseController;
-import wx.base.manager.IManager;
 import wx.milk.manager.admin.IMenuManager;
 import wx.milk.manager.admin.IUserManager;
 import wx.milk.model.Menu;
 
 import wx.milk.web.utils.MenuUtils;
-import wx.query.Query;
-import wx.query.Statement;
-import wx.security.User;
-import wx.util.ShiroUtils;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package wx.milk.service.admin;
 
-import wx.base.service.IService;
-import wx.milk.model.Company;
+import com.framework.service.IService;
 import wx.milk.model.Zone;
 
 /**

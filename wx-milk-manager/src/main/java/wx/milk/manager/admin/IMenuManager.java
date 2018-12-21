@@ -1,8 +1,9 @@
 package wx.milk.manager.admin;
 
-import wx.base.manager.IManager;
+import com.framework.core.query.Query;
+import com.framework.manager.IManager;
 import wx.milk.model.Menu;
-import wx.query.Query;
+
 
 import java.util.List;
 

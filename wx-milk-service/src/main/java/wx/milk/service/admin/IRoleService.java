@@ -1,6 +1,6 @@
 package wx.milk.service.admin;
 
-import wx.base.service.IService;
+import com.framework.service.IService;
 import wx.milk.model.Role;
 
 

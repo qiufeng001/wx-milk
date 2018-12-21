@@ -19,9 +19,9 @@
     </bean>
 
 
-    <bean name="wxRedisClient" class="wx.redis.WxRedisClient" lazy-init="false">
+    <bean name="wxRedisClient" class="com.framework.core.redis.WxRedisClient" lazy-init="false">
         <property name="commonJedis">
-            <bean class="wx.redis.WxRedisFactoryBean">
+            <bean class="com.framework.core.redis.WxRedisFactoryBean">
                 <constructor-arg index="0" ref="jedisPoolConfig"/>
                 <constructor-arg index="1" value="${jedis.url.common}"/>
                 <constructor-arg index="2" value="${jedis.port.common}"/>

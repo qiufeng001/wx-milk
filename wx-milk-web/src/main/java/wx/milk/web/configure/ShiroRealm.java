@@ -1,5 +1,8 @@
-package wx.milk.web.configuration;
+package wx.milk.web.configure;
 
+import com.framework.core.query.Query;
+import com.framework.core.security.User;
+import com.framework.core.util.ControllerUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -14,10 +17,7 @@ import wx.milk.service.admin.IDictionsService;
 import wx.milk.service.admin.IRoleService;
 import wx.milk.service.admin.IUserRoleService;
 import wx.milk.service.admin.IUserService;
-import wx.milk.web.utils.ControllerUtils;
 import wx.milk.web.utils.SpringBeanFactoryUtils;
-import wx.query.Query;
-import wx.security.User;
 
 import java.util.HashSet;
 import java.util.List;

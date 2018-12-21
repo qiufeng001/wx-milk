@@ -1,4 +1,4 @@
-package wx.milk.web.configuration;
+package wx.milk.web.configure;
 
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

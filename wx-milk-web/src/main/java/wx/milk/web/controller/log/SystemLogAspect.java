@@ -1,5 +1,11 @@
 package wx.milk.web.controller.log;
 
+import com.framework.core.configuration.Config;
+import com.framework.core.util.JsonUtil;
+import com.framework.core.util.ShiroUtils;
+import com.framework.core.util.WebUtils;
+import com.framework.web.inspect.ExecutionContext;
+import com.framework.web.utils.RedisUtils;
 import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -11,19 +17,12 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import wx.milk.manager.ISystemLogManager;
 import wx.milk.model.log.SystemLog;
-import wx.milk.web.base.inspect.ExecutionContext;
-import wx.milk.web.configuration.WxConfig;
-import wx.milk.web.utils.RedisUtils;
-import wx.milk.web.utils.WebUtils;
-import wx.util.JsonUtil;
-import wx.util.ShiroUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 定义日志切入类
@@ -44,14 +43,14 @@ public class SystemLogAspect {
     /**
      * 定义service切入点拦截规则，拦截SystemServiceLog注解的方法
      */
-    @Pointcut("execution(* wx.base.manager.impl.BaseManager.*(..))")
+    @Pointcut("execution(* com.framework.manager.impl.BaseManager.*(..))")
     public void exceptionAspect() {
     }
 
     /**
      * 插入日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.BaseManager.insert(..))")
+    @Pointcut("execution(* com.framework.manager.impl.BaseManager.insert(..))")
     public void insert() {
 
     }
@@ -59,7 +58,7 @@ public class SystemLogAspect {
     /**
      * 修改日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.BaseManager.update(..))")
+    @Pointcut("execution(* com.framework.manager.impl.BaseManager.update(..))")
     public void update() {
 
     }
@@ -67,23 +66,23 @@ public class SystemLogAspect {
     /**
      * 删除日志
      */
-    @Pointcut("execution(* wx.base.manager.impl.BaseManager.delete*(..))")
+    @Pointcut("execution(* com.framework.manager.impl.BaseManager.delete*(..))")
     public void delete() {
 
     }
 
     @AfterReturning(value = "insert()")
     public void insertLog(JoinPoint joinPoint) throws Throwable {
-        String pointCutName = ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID));
+        String pointCutName = ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID));
         if (StringUtils.isBlank(pointCutName)) {
-            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.INSERT.getText());
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID), SystemLog.OperatorType.INSERT.getText());
         }
         // 判断参数
-        boolean flag = (ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID)))
+        boolean flag = (ExecutionContext.getContextMap().get(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID)))
                 .equalsIgnoreCase(SystemLog.OperatorType.INSERT.getText());
 
         if (flag) {
-            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.STOP.getText());
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID), SystemLog.OperatorType.STOP.getText());
             request = getHttpServletRequest();
             if (joinPoint.getArgs() == null) {// 没有参数
                 return;
@@ -106,7 +105,7 @@ public class SystemLogAspect {
     @AfterReturning(value = "delete()")
     public void deleteLog(JoinPoint joinPoint) throws Throwable {
         request = getHttpServletRequest();
-        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.DELETE.getText());
+        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID), SystemLog.OperatorType.DELETE.getText());
 
         // 判断参数
         if (joinPoint.getArgs() == null) {// 没有参数
@@ -131,7 +130,7 @@ public class SystemLogAspect {
     public void updateLog(JoinPoint joinPoint) throws Throwable {
         request = getHttpServletRequest();
         if (!(request.getRequestURI()).contains("/signout")) {
-            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.UPDATE.getText());
+            ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID), SystemLog.OperatorType.UPDATE.getText());
 
             // 判断参数
             if (joinPoint.getArgs() == null) {// 没有参数
@@ -139,7 +138,7 @@ public class SystemLogAspect {
             }
             // 获取方法名
             String methodName = joinPoint.getSignature().getName();
-            request.setAttribute(WxConfig.JOINT_POINT_METHOD_NAME, methodName);
+            request.setAttribute(Config.JOINT_POINT_METHOD_NAME, methodName);
             // 获取操作内容
             String opContent = optionContent(joinPoint.getArgs(), methodName);
 
@@ -160,14 +159,14 @@ public class SystemLogAspect {
      * @param joinPoint
      * @param e
      */
-    @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
+   // @AfterThrowing(pointcut = "exceptionAspect()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         request = getHttpServletRequest();
         Map<String, String> map = ExecutionContext.getContextMap();
         if (map == null) {
 
         }
-        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(WxConfig.CURRENT_THEAD_ID), SystemLog.OperatorType.EXCEPTION.getText());
+        ExecutionContext.getContextMap().put(ExecutionContext.getContextMap().get(Config.CURRENT_THEAD_ID), SystemLog.OperatorType.EXCEPTION.getText());
 
         // 获取登陆用户信息
         String user = RedisUtils.getUserJsonByToken(request);

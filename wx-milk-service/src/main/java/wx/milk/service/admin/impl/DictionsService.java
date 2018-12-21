@@ -1,13 +1,13 @@
 package wx.milk.service.admin.impl;
 
+import com.framework.core.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wx.base.domain.IRepository;
-import wx.base.service.impl.BaseService;
+import com.framework.core.base.domain.IRepository;
+import com.framework.service.impl.BaseService;
 import wx.milk.domain.DictionsRepository;
 import wx.milk.model.Dictions;
 import wx.milk.service.admin.IDictionsService;
-import wx.query.Query;
 
 import java.util.List;
 

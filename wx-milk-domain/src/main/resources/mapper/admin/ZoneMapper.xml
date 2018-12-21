@@ -61,7 +61,6 @@
         <include refid="colums_condition"/>
         FROM t_zone u
         WHERE
-        <include refid="condition"/>
     </select>
 
     <insert id="insert" parameterType="wx.milk.model.Menu">

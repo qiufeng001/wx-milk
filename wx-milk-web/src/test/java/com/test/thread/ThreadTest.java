@@ -1,9 +1,6 @@
 package com.test.thread;
 
 
-import wx.redis.WxJedisCommands;
-import wx.redis.WxRedisClient;
-
 import java.util.concurrent.CountDownLatch;
 
 /**

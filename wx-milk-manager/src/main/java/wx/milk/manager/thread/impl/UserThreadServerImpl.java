@@ -5,15 +5,15 @@ package wx.milk.manager.thread.impl;
  * try it bast!`
  */
 
+import com.framework.core.security.User;
+import com.framework.core.util.ShiroUtils;
+import com.framework.manager.impl.BaseManager;
+import com.framework.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import wx.base.service.IService;
-import wx.base.manager.impl.BaseManager;
 import wx.milk.manager.thread.IUserThreadServer;
 import wx.milk.service.admin.IUserService;
-import wx.security.User;
-import wx.util.ShiroUtils;
 
 @Service
 public class UserThreadServerImpl extends BaseManager<User, String> implements IUserThreadServer {

@@ -6,11 +6,11 @@
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="zone_id" property="zoneId" jdbcType="VARCHAR"/>
-        <result column="address" property="address" jdbcType="INTEGER"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="phone_num" property="phoneNum" jdbcType="VARCHAR"/>
         <result column="legal_person" property="legalPerson" jdbcType="VARCHAR"/>
         <result column="legal_person_num" property="legalPersonNum" jdbcType="VARCHAR"/>
-        <result column="session_invalid_time" property="sessionInvalidTime" jdbcType="INTEGR"/>
+        <result column="session_invalid_time" property="sessionInvalidTime" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>

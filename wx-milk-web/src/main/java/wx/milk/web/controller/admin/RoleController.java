@@ -1,23 +1,12 @@
 package wx.milk.web.controller.admin;
 
+import com.framework.manager.IManager;
+import com.framework.web.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import wx.base.controller.BaseController;
-import wx.base.domain.DataChangeEntry;
-import wx.base.manager.IManager;
-import wx.exception.JsonManagerException;
-import wx.exception.manager.ManagerException;
 import wx.milk.manager.admin.IRoleManager;
 import wx.milk.model.Role;
-import wx.query.PageResult;
-import wx.query.Pagenation;
-import wx.query.Query;
-
-import java.util.List;
 
 /**
  *

@@ -19,8 +19,8 @@
 		<mapper resource="mapper/admin/UserRoleMapper.xml"/>
 		<mapper resource="mapper/admin/MenuMapper.xml"/>
 		<mapper resource="mapper/admin/RoleMenuMapper.xml"/>
-		<mapper resource="mapper/admin/ZoneMenuMapper.xml"/>
-		<mapper resource="mapper/admin/CompanyMenuMapper.xml"/>
+		<mapper resource="mapper/admin/ZoneMapper.xml"/>
+		<mapper resource="mapper/admin/CompanyMapper.xml"/>
 		<!-- 日志类 -->
 		<mapper resource="mapper/log/SystemLogMapper.xml"/>
 

@@ -1,4 +1,4 @@
-package wx.milk.web.configuration;
+package wx.milk.service.configuration;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Configuration;

@@ -13,11 +13,7 @@
 
     <dependencies>
         <!-- freemarker 依赖 -->
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.23</version>
-        </dependency>
+
         <dependency>
             <groupId>wx</groupId>
             <artifactId>wx-milk-manager</artifactId>
@@ -43,24 +39,7 @@
             <groupId>wx</groupId>
             <version>1.0-SNP</version>
         </dependency>
-        <!-- kaptcha 验证码 -->
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <!-- md5 -->
-        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
+
 
     </dependencies>
     <build>

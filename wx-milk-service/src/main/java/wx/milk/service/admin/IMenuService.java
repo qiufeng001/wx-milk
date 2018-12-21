@@ -1,8 +1,8 @@
 package wx.milk.service.admin;
 
-import wx.base.service.IService;
+import com.framework.core.query.Query;
+import com.framework.service.IService;
 import wx.milk.model.Menu;
-import wx.query.Query;
 
 import java.util.List;
 

@@ -1,5 +1,14 @@
 package wx.milk.web.controller.admin;
 
+import com.framework.core.contants.Constant;
+import com.framework.core.query.Query;
+import com.framework.core.query.Statement;
+import com.framework.core.util.ShiroUtils;
+import com.framework.manager.ICommonManager;
+import com.framework.manager.IManager;
+import com.framework.model.Common;
+import com.framework.web.controller.BaseController;
+import com.framework.web.utils.RedisUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,19 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import wx.base.controller.BaseController;
-import wx.base.manager.IManager;
-import wx.contants.WxConstant;
-import wx.milk.manager.IWxCommonManager;
 import wx.milk.manager.admin.IDictionsManager;
 import wx.milk.manager.admin.IMenuManager;
 import wx.milk.model.Dictions;
 import wx.milk.model.Menu;
-import wx.milk.model.WxCommon;
-import wx.milk.web.utils.RedisUtils;
-import wx.query.Query;
-import wx.query.Statement;
-import wx.util.ShiroUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +43,7 @@ public class MenuController extends BaseController<Menu, String> {
     @Autowired
     private IDictionsManager dictionsManager;
     @Autowired
-    private IWxCommonManager commonManager;
+    private ICommonManager commonManager;
 
     @Override
     protected IManager<Menu, String> getManager() {
@@ -105,7 +105,7 @@ public class MenuController extends BaseController<Menu, String> {
                     menu.setPId("0");
                 }
                 menu.setSequence(RedisUtils.getAndUpdateSequence(query, commonManager,
-                        WxConstant.MENU_SEQUENCE, "t_menu"));
+                        Constant.MENU_SEQUENCE, "t_menu"));
                 manager.insert(menu);
             } else {
                 // 修改
@@ -134,11 +134,11 @@ public class MenuController extends BaseController<Menu, String> {
 
     @RequestMapping("/getSequence")
     @ResponseBody
-    public WxCommon getSequence(Query query) {
+    public Common getSequence(Query query) {
         Statement statement = new Statement();
         statement.setName("tableName");
         statement.setValue("t_menu");
-        WxCommon wxCommon = commonManager.findMaxSequence(query.and(statement));
+        Common wxCommon = commonManager.findMaxSequence(query.and(statement));
         return wxCommon;
     }
 }

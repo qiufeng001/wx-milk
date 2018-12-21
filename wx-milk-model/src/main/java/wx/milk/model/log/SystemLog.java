@@ -2,9 +2,9 @@ package wx.milk.model.log;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import wx.security.BasicEntity;
-import wx.util.date.JsonDateDeserializer;
-import wx.util.date.JsonDefaultDateSerializer;
+import com.framework.core.security.BasicEntity;
+import com.framework.core.util.date.JsonDateDeserializer;
+import com.framework.core.util.date.JsonDefaultDateSerializer;
 
 import java.util.Date;
 

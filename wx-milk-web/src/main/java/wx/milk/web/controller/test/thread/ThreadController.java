@@ -1,10 +1,10 @@
 package wx.milk.web.controller.test.thread;
 
+import com.framework.core.redis.WxJedisCommands;
+import com.framework.core.redis.WxRedisClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import wx.redis.WxJedisCommands;
-import wx.redis.WxRedisClient;
 
 /**
  * auther: kiven on 2018/8/16/016 0:10

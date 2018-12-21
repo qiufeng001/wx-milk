@@ -1,28 +1,28 @@
 package wx.milk.manager.impl;
 
+import com.framework.core.exception.manager.ManagerException;
+import com.framework.core.query.Query;
+import com.framework.manager.ICommonManager;
+import com.framework.model.Common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wx.base.manager.impl.BaseManager;
-import wx.base.service.IService;
-import wx.exception.manager.ManagerException;
-import wx.milk.manager.IWxCommonManager;
-import wx.milk.model.WxCommon;
+import com.framework.manager.impl.BaseManager;
+import com.framework.service.IService;
 import wx.milk.service.IWxCommonService;
-import wx.query.Query;
 
 @Service
-public class WxCommonManager extends BaseManager<WxCommon, String> implements IWxCommonManager {
+public class WxCommonManager extends BaseManager<Common, String> implements ICommonManager {
 
 	@Autowired
 	private IWxCommonService service;
 
 	@Override
-	protected IService<WxCommon, String> getService() {
+	protected IService<Common, String> getService() {
 		return service;
 	}
 
 	@Override
-	public WxCommon findMaxSequence(Query query) throws ManagerException {
+	public Common findMaxSequence(Query query) throws ManagerException {
 		return service.findMaxSequence(query);
 	}
 }

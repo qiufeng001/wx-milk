@@ -1,12 +1,13 @@
 package wx.milk.web.base.inspect;
 
+import com.framework.core.configuration.Config;
+import com.framework.core.redis.WxJedisCommands;
+import com.framework.core.redis.WxRedisClient;
+import com.framework.core.util.CookieUtils;
+import com.framework.web.inspect.ExecutionContext;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Component;
-import wx.milk.web.configuration.WxConfig;
-import wx.milk.web.utils.CookieUtils;
 import wx.milk.web.utils.DomainUtils;
-import wx.redis.WxJedisCommands;
-import wx.redis.WxRedisClient;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -35,7 +36,7 @@ public class WxPlatFormFilter implements Filter {
         HashMap<String, String> contextMap = new HashMap<>();
 
         HttpServletRequest request = (HttpServletRequest) req;
-        request.setAttribute(WxConfig.COOKIE_DOMAIN, getCookieDomain(request.getServerName()));
+        request.setAttribute(Config.COOKIE_DOMAIN, getCookieDomain(request.getServerName()));
 
         // 如果是登录的话，获取登录的时间，设置登录时间，超过时间则退出登录，直接跳转到登录页面
         String requestURI = request.getRequestURI();
@@ -45,11 +46,11 @@ public class WxPlatFormFilter implements Filter {
         }else{
             long startTime = System.currentTimeMillis();
             String currentThreadId = Thread.currentThread().getId() + "_" + CookieUtils.getLoginToken(request);
-            contextMap.put(WxConfig.LOGIN_START_TIME, startTime + "");
-            contextMap.put(WxConfig.WX_SESSION_ID, "wx_session_id_" + CookieUtils.getValue(request));
-            contextMap.put(WxConfig.USER_IP, request.getRemoteAddr());
-            contextMap.put(WxConfig.CONTEXT_PATH, request.getContextPath());
-            contextMap.put(WxConfig.CURRENT_THEAD_ID, currentThreadId);
+            contextMap.put(Config.LOGIN_START_TIME, startTime + "");
+            contextMap.put(Config.WX_SESSION_ID, "wx_session_id_" + CookieUtils.getValue(request));
+            contextMap.put(Config.USER_IP, request.getRemoteAddr());
+            contextMap.put(Config.CONTEXT_PATH, request.getContextPath());
+            contextMap.put(Config.CURRENT_THEAD_ID, currentThreadId);
             contextMap.put(currentThreadId + "", "");
             ExecutionContext.setContextMap(contextMap);
         }

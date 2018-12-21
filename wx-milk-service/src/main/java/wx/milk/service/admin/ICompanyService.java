@@ -1,11 +1,8 @@
 package wx.milk.service.admin;
 
-import wx.base.service.IService;
-import wx.milk.model.Company;
-import wx.milk.model.Role;
-import wx.security.User;
 
-import java.util.List;
+import com.framework.service.IService;
+import wx.milk.model.Company;
 
 /**
  * @author zhong.h

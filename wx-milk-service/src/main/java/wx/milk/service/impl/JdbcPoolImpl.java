@@ -1,10 +1,7 @@
 package wx.milk.service.impl;
 
 import org.springframework.stereotype.Service;
-import wx.base.domain.IRepository;
-import wx.base.service.impl.BaseService;
 import wx.milk.service.IJdbcPool;
-import wx.security.User;
 
 import javax.sql.DataSource;
 import java.io.InputStream;

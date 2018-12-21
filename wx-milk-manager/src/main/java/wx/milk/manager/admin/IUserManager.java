@@ -1,7 +1,8 @@
 package wx.milk.manager.admin;
 
-import wx.base.manager.IManager;
-import wx.security.User;
+
+import com.framework.core.security.User;
+import com.framework.manager.IManager;
 
 
 public interface IUserManager extends IManager<User, String> {

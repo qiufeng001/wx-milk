@@ -1,8 +1,8 @@
 package wx.milk.model;
 
+import com.framework.core.security.BasicEntity;
+import com.framework.core.security.IUser;
 import groovy.transform.ToString;
-import wx.security.BasicEntity;
-import wx.security.IUser;
 
 import java.util.List;
 

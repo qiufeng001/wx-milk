@@ -1,6 +1,7 @@
 package wx.milk.model;
 
-import wx.security.BasicEntity;
+
+import com.framework.core.security.BasicEntity;
 
 /**
  * Created by zhong.h on 2018/6/13/013.

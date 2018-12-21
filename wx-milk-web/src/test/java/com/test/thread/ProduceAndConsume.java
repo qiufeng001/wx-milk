@@ -1,10 +1,8 @@
 package com.test.thread;
 
-import wx.redis.WxJedisCommands;
-import wx.redis.WxRedisClient;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.framework.core.redis.WxJedisCommands;
+import com.framework.core.redis.WxRedisClient;
 
 /**
  * auther: kiven on 2018/8/15/015 22:38

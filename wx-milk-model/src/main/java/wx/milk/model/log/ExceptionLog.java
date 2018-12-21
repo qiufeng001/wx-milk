@@ -1,6 +1,7 @@
 package wx.milk.model.log;
 
-import wx.security.BasicEntity;
+
+import com.framework.core.security.BasicEntity;
 
 /**
  * auther: kiven on 2018/8/31/031 9:33

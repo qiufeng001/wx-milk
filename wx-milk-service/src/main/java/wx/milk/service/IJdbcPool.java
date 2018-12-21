@@ -1,7 +1,8 @@
 package wx.milk.service;
 
-import wx.base.service.IService;
-import wx.security.User;
+
+import com.framework.core.security.User;
+import com.framework.service.IService;
 
 import java.sql.Connection;
 import java.sql.SQLException;

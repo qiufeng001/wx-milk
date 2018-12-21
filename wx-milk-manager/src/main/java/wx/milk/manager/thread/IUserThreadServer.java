@@ -1,7 +1,7 @@
 package wx.milk.manager.thread;
 
-import wx.base.manager.IManager;
-import wx.security.User;
+import com.framework.core.security.User;
+import com.framework.manager.IManager;
 
 
 /**

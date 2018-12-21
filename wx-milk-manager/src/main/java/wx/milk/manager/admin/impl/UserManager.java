@@ -2,17 +2,17 @@ package wx.milk.manager.admin.impl;
 
 import java.util.List;
 
+import com.framework.core.exception.manager.ManagerException;
+import com.framework.core.security.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wx.base.service.IService;
-import wx.exception.manager.ManagerException;
+import com.framework.manager.impl.BaseManager;
+import com.framework.service.IService;
 import wx.milk.manager.admin.IUserManager;
-import wx.base.manager.impl.BaseManager;
 import wx.milk.model.Role;
 import wx.milk.service.admin.IUserService;
-import wx.security.User;
 
 
 @Service

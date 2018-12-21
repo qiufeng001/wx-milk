@@ -2,15 +2,15 @@ package wx.milk.service.admin.impl;
 
 import java.util.List;
 
+import com.framework.core.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import wx.base.domain.IRepository;
-import wx.base.service.impl.BaseService;
+import com.framework.core.base.domain.IRepository;
+import com.framework.service.impl.BaseService;
 import wx.milk.domain.UserRepository;
 import wx.milk.model.Role;
 
 import wx.milk.service.admin.IUserService;
-import wx.security.User;
 
 
 @Service

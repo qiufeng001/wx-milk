@@ -1,10 +1,10 @@
 package wx.milk.web.controller.admin;
 
+import com.framework.manager.IManager;
+import com.framework.web.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import wx.base.controller.BaseController;
-import wx.base.manager.IManager;
 import wx.milk.manager.admin.IDictionsManager;
 import wx.milk.model.Dictions;
 

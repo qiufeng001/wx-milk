@@ -1,12 +1,9 @@
 package wx.milk.service;
 
-import org.apache.catalina.Manager;
-import wx.base.service.IService;
-import wx.exception.manager.ManagerException;
-import wx.milk.model.WxCommon;
-import wx.query.Query;
+import com.framework.core.query.Query;
+import com.framework.model.Common;
+import com.framework.service.IService;
 
-public interface IWxCommonService extends IService<WxCommon, String> {
-
-    WxCommon findMaxSequence(Query query);
+public interface IWxCommonService extends IService<Common, String> {
+    Common findMaxSequence(Query query);
 }
