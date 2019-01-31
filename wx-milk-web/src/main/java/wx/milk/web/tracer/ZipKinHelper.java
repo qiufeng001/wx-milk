@@ -10,22 +10,20 @@ import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.protocol.dubbo.FutureAdapter;
 import com.alibaba.dubbo.rpc.support.RpcUtils;
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang.StringUtils;
+import wx.milk.service.zipkin.IdUtils;
 import wx.milk.service.zipkin.RpcTraceContext;
-import zipkin2.Endpoint;
 
 import java.net.InetSocketAddress;
-import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.Future;
 
 /**
- * @author wenj91
- * @Description:
- * @date 2018/6/22 10:44
+ * 帮助类
  */
 public class ZipKinHelper {
 
-    static final Propagation.Setter<Map<String, String>, String> SETTER =
+    public static final Propagation.Setter<Map<String, String>, String> SETTER =
             new Propagation.Setter<Map<String, String>, String>() {
                 @Override
                 public void put(Map<String, String> carrier, String key, String value) {
@@ -38,7 +36,7 @@ public class ZipKinHelper {
                 }
             };
 
-    static final Propagation.Getter<Map<String, String>, String> GETTER =
+    public static final Propagation.Getter<Map<String, String>, String> GETTER =
             new Propagation.Getter<Map<String, String>, String>() {
                 @Override
                 public String get(Map<String, String> carrier, String key) {
@@ -51,32 +49,76 @@ public class ZipKinHelper {
                 }
             };
 
-    static Span buildSpan(Tracer tracer, Invocation invocation, RpcContext rpcContext) {
+    /**
+     * RpcTraceContext 添加必要属性值
+     * @param invocation dubbo远程调用
+     */
+    public static void setRpcContext(Invocation invocation) {
+        Map<String, String> attaches = invocation.getAttachments();
+        if (!attaches.containsKey(RpcTraceContext.TRACE_ID_KEY)) {
+            String id = (String) invocation.getArguments()[0];
+            if (StringUtils.isNotEmpty(id + "")) {
+                try {
+                    long traceId = Long.parseLong(id, 16);
+                    RpcTraceContext.start();
+                    RpcTraceContext.setParentId(traceId);
+                    RpcTraceContext.setTraceId(traceId);
+                    RpcTraceContext.setSpanId(IdUtils.get());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            long traceId = Long.valueOf(attaches.get(RpcTraceContext.TRACE_ID_KEY));
+            Long spanId = Long.valueOf(attaches.get(RpcTraceContext.SPAN_ID_KEY));
+            attaches.remove(RpcTraceContext.TRACE_ID_KEY);
+            attaches.remove(RpcTraceContext.SPAN_ID_KEY);
+            RpcTraceContext.start();
+            RpcTraceContext.setTraceId(traceId);
+            RpcTraceContext.setParentId(spanId);
+            RpcTraceContext.setSpanId(IdUtils.get());
+        }
+    }
+
+    /**
+     * 创建span
+     * @param tracer 调用链对象
+     * @param invoker
+     * @param invocation dubbo远程调用
+     * @param rpcContext dubbo上下文
+     * @return span对象
+     */
+    public static Span buildSpan(Tracer tracer, Invoker<?> invoker, Invocation invocation, RpcContext rpcContext) {
         TraceContext traceContext = TraceContext.newBuilder()
                 .traceId(RpcTraceContext.getTraceId())
                 .parentId(RpcTraceContext.getParentId())
                 .spanId(RpcTraceContext.getSpanId())
                 .sampled(true)
                 .build();
-
         InetSocketAddress remoteAddress = rpcContext.getRemoteAddress();
-        String localHost = rpcContext.getLocalHost();
 
-        Endpoint.Builder remoteEndpoint = Endpoint.newBuilder().port(remoteAddress.getPort());
-        remoteEndpoint.serviceName(RpcTraceContext.getTracerConfig().getApplicationName());
-        remoteEndpoint.parseIp("");
-        Span span = tracer.joinSpan(traceContext).start();
+        Span span = tracer.toSpan(traceContext).start();
         span.annotate("serverRemoteStartTime");
-        span.tag("tag", "hahah");
         span.name(RpcUtils.getMethodName(invocation));
         span.remoteIpAndPort(Platform.get().getHostString(remoteAddress), remoteAddress.getPort());
-        span.remoteServiceName(RpcTraceContext.getTracerConfig().getApplicationName());
-        span.remoteEndpoint(remoteEndpoint.build());
 
+        span.tag("http.path", invoker.getInterface().getSimpleName() + "/" + rpcContext.getMethodName());
+
+        rpcContext.setAttachment(RpcTraceContext.TRACE_ID_KEY, String.valueOf(span.context().traceId()));
+        rpcContext.setAttachment(RpcTraceContext.SPAN_ID_KEY, String.valueOf(span.context().spanId()));
         return span;
     }
 
-    static Result spanTracing(Span span, Tracer tracer, Invoker<?> invoker, Invocation invocation, RpcContext rpcContext) {
+    /**
+     * 执行上下文
+     * @param span span对象
+     * @param tracer tace 对象
+     * @param invoker
+     * @param invocation dubbo远程调用
+     * @param rpcContext dubbo上下文
+     * @return 服务运行结果
+     */
+    public static Result spanTracing(Span span, Tracer tracer, Invoker<?> invoker, Invocation invocation, RpcContext rpcContext) {
         boolean isOneway = false;
         boolean deferFinish = false;
         try (Tracer.SpanInScope scope = tracer.withSpanInScope(span)) {
@@ -104,14 +146,14 @@ public class ZipKinHelper {
         }
     }
 
-    static void onError(Throwable error, Span span) {
+    private static void onError(Throwable error, Span span) {
         span.error(error);
         if (error instanceof RpcException) {
             span.tag("dubbo.error_code", Integer.toString(((RpcException) error).getCode()));
         }
     }
 
-    static final class FinishSpanCallback implements ResponseCallback {
+    private static final class FinishSpanCallback implements ResponseCallback {
         final Span span;
 
         FinishSpanCallback(Span span) {

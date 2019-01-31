@@ -12,11 +12,7 @@ public class RpcTraceContext extends AbstractContext {
 
     public static final String TRACE_ID_KEY = "traceId";
 
-    public static final String TRACE = "trace";
-
     public static final String SPAN_ID_KEY = "spanId";
-
-    public static final String SPAN = "span";
 
     public static TracerConfig getTracerConfig(){
         return tracerConfig;
@@ -51,7 +47,7 @@ public class RpcTraceContext extends AbstractContext {
     }
 
 
-    public static void clear(){
+    private static void clear(){
         TRACE_ID.remove();
         SPAN_ID.remove();
     }
