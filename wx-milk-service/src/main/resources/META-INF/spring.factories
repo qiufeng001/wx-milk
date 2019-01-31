@@ -2,4 +2,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 wx.milk.service.configuration.ServiceAutoConifg,\
 wx.milk.service.configuration.ServiceModelAutoConfiguration
+#wx.milk.service.configuration.JaegerGlobalTracerConfiguration
+#wx.milk.service.zipkin2.TracingConfig
 

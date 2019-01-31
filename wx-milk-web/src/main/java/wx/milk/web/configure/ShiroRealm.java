@@ -56,8 +56,6 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(
             PrincipalCollection principals) {
 
-
-
         if (roleService == null) {
             roleService = SpringBeanFactoryUtils.getBean(IRoleService.class);
         }
@@ -66,7 +64,7 @@ public class ShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         //获取用户角色
         List<UserRole> rolesList = userRoleService.selectByParams(ControllerUtils.getQuery(new Query(), "account",  user.getAccount()));
-        Set<String> roleSet = new HashSet<String>();
+        Set<String> roleSet = new HashSet<>();
         for (UserRole userRole: rolesList) {
             roleSet.add(userRole.getRoleNo());
         }
@@ -74,7 +72,7 @@ public class ShiroRealm extends AuthorizingRealm {
 
         // 获取用户权限
         List<Dictions> dictionsList = dictionsService.selectByParams(ControllerUtils.getQuery(new Query(), "roles",  rolesList));
-        Set<String> permissionSet = new HashSet<String>();
+        Set<String> permissionSet = new HashSet<>();
         for (Dictions diction: dictionsList) {
             roleSet.add(diction.getName());
         }

@@ -1,5 +1,6 @@
 "use strict";
 define(function (require, exports, module) {
+    var $table;
 
     $(function () {
         InitMainTable();
@@ -7,7 +8,7 @@ define(function (require, exports, module) {
         saveRoleMenu();
     });
 
-    var $table;
+
     //初始化bootstrap-table的内容
     function InitMainTable() {
         //记录页面bootstrap-table全局变量$table，方便应用
@@ -23,6 +24,10 @@ define(function (require, exports, module) {
             sortable: true,                     //是否启用排序
             sortOrder: "asc",                   //排序方式
             showRefresh: true,                  //是否显示刷新按钮
+            showColumns: true,
+            showExport: true,
+            exportDataType: "basic",
+            exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel'],
             sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
             pageSize: 10,                     //每页的记录行数（*）
@@ -177,17 +182,17 @@ define(function (require, exports, module) {
                             delete(0);
                         };
                         $div.append(ipt);
-                    }else if (_code == 'export') {
+                    }/*else if (_code == 'export') {
                         var ipt = document.createElement("input");
                         ipt.type = "button";
                         ipt.value = _name;
-                        ipt.id = 'btn-reset';
-                        ipt.className = "btn btn-danger";
+                        ipt.id = 'btn-export';
+                        ipt.className = "btn btn-success";
                         ipt.onclick = function () {
                             doExport($table);
                         };
                         $div.append(ipt);
-                    }
+                    }*/
                 }
             }
         });
@@ -198,18 +203,37 @@ define(function (require, exports, module) {
         window.location.href = '/menu/edit?id=';
     }
 
+    function transfer(val, columArr) {
+        var str = val.replace(/↵/g, '_');
+        var arr = val.split("_", str)
+        for(var i = 0;i < arr.length;i++) {
+            var temp = {};
+            temp.push(arr[i]);
+            columArr.push(temp);
+        }
+        return columArr;
+    }
+
     /**
      * 分tab导出
      */
     function doExport(options) {
         var params = {};
-        params._columns = JSON.stringify(options.columns);
-        params._fileName = options[0].fileName;
+        var columArr = {};
+        transfer(options[0].tHead.innerText, columArr)
+        var columArr = new Array();
+        // transfer(options[0].tHead.innerText, columArr)
+        //params._columns = JSON.stringify(columArr);
+        var col = options.column;
+        params._columns = JSON.stringify(options[0].childNodes[0]);
+
+        // params._fileName = options[0].fileName;
+        params._fileName = '菜单';
 
         $("#exportExcelForm").remove();
         $("<form id='exportExcelForm' method='post'></form>").appendTo("body");
         var realUrl = options[0].baseURI + "export";
-``
+
      /*   $('#exportExcelForm').a('submit', {
             url: realUrl,
             onSubmit: function (ps) {
@@ -217,17 +241,19 @@ define(function (require, exports, module) {
             }
         });
         */
-        $('#exportExcelForm').submit(function() {
-            $.ajax({
-                url: realUrl,
-                type: 'POST',
-                data: params,
-                async: 'false',
-                success: function (data) {
-                    $.extend(ps, params);
-                }
-            });
 
+        $.ajax({
+            url: realUrl,
+            type: 'POST',
+            dataType: "json",
+            data: params,
+            async: 'false',
+            success: function (data) {
+                $.extend(ps, params);
+            },
+            err: function () {
+              alert(1)
+            }
         });
     }
 
@@ -306,8 +332,16 @@ define(function (require, exports, module) {
 
         // 停用
         'click .btn-stop': function (e, value, row, index) {
-            alert(row.dno);
+            update(row.dno);
+        },
+
+        'click .btn-export': function (e, value, row, index) {
+            doExport();
         }
+    }
+
+    function update() {
+
     }
 
     function saveRoleMenu() {

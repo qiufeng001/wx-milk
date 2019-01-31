@@ -1,5 +1,8 @@
 "use strict";
 define(function (require, exports, module) {
+    let UI = require('core/ui');
+    let controls = require('core/controls');
+    let config = require('../config');
 
     $(function () {
         validate();

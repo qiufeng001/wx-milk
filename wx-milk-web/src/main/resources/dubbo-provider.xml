@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+
+	<dubbo:application name="provider"/>
+	<!-- use multicast registry center to export service -->
+	<dubbo:registry address="zookeeper://localhost:2181"/>
+	<dubbo:provider filter="tracerFilter"/>
+	<!-- 用registry协议配置监视器 -->
+	<dubbo:monitor protocol="registry" />
+	<!-- use dubbo protocol to export service on port 20880 -->
+	<dubbo:protocol name="dubbo" port="20882"/>
+	<bean id="dubboTest" class="wx.milk.service.dubbo.DubboTest"/>
+	<bean id="userDubboManager" class="wx.milk.service.dubbo.UserDubboManager"/>
+	<!-- declare the service interface to be exported -->
+	<dubbo:service interface="wx.milk.api.server.ITestDubboProvider" ref="dubboTest"/>
+	<dubbo:service interface="wx.milk.api.server.IUserDubboProvider" ref="userDubboManager"/>
+</beans>

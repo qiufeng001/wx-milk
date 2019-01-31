@@ -487,7 +487,7 @@
     jQuery(function ($) {
         $('#uploadHeadPortrait').click(function () {
             $("#updata-head-portrait-model").modal('show');
-            var uploadUrl = "${base}/file-server/upload";
+            var uploadUrl = "${base}/sf/upload";
             $('#uploadFile').fileinput({
                 resizeImage : true,
                 maxImageWidth : 50,
@@ -504,6 +504,7 @@
                 maxFileCount : 1,
                 msgFilesTooMany : "选择图片超过了最大数量",
                 maxFileSize : 2000,
+                showRemove : false
                 //initialPreview: [
                 //预览图片的设置
                 //      "<img src='http://127.0.0.1:8080/NewsManageSys/plugin/umeditor1_2_2/jsp/upload/20161030/55061                       477813913474.jpg' class='file-preview-image' alt='肖像图片' title='肖像图片'>",

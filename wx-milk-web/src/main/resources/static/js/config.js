@@ -19,5 +19,3 @@ define(function (require, exports, module) {
                         {id: "10", name: "已挂单"},{id: "11", name: "已部分收款"},{id: "12", name: "已收全款"},
                         {id: "21", name: "部分退款成功"},{id: "22", name: "退款成功"},{id: "99", name: "已作废"}];
 });
-
-
